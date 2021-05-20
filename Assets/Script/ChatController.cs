@@ -30,6 +30,7 @@ public class ChatController : MonoBehaviour
     [SerializeField] private PlayerScore playerScore;
     [SerializeField] private int maxPlayerOn;
     private IEnumerator reconected;
+    private bool _isManagerZombiStart;
     [SerializeField] private float waitToReconnected;
 
     private void Start()
@@ -119,6 +120,11 @@ public class ChatController : MonoBehaviour
                             _users.Add(chatName, user);
 
                             // playerScore.SetTableScore(_users);
+                            if (_users.Count > 0 && !_isManagerZombiStart)
+                            {
+                                zombiManager.StateManager(true);
+                                _isManagerZombiStart = true;
+                            }
                         }
                     }
                 }

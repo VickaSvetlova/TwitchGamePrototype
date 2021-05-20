@@ -34,8 +34,24 @@ public class ZombiManager : MonoBehaviour
     {
         _nameZombi.AddRange(nameZombi);
         ResetRandom();
+        
+    }
+
+    public void StateManager(bool state)
+    {
         timerSpawnZombi = CooldownSpawnZombi();
-        StartCoroutine(timerSpawnZombi);
+        
+        if (state)
+        {
+            StartCoroutine(timerSpawnZombi);
+        }
+        else
+        {
+            if (timerSpawnZombi != null)
+            {
+                StopCoroutine(timerSpawnZombi);
+            }
+        }
     }
 
     private IEnumerator CooldownSpawnZombi()
