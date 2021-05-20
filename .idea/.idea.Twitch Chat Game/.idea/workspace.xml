@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d307b80e-77ce-4b90-aa50-9d16329edb7e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../wannabe-resident-evil/Assets/WorldVisible.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ZoneDestroy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Zona.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AIController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AIAgent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/ChatController.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/RandomColor.cs" />
+        <option value="$PROJECT_DIR$/Assets/TwitchChat.cs" />
+        <option value="$PROJECT_DIR$/Assets/User.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/User.cs" />
+        <option value="$PROJECT_DIR$/../wannabe-resident-evil/Assets/WorldVisible.cs" />
+        <option value="$PROJECT_DIR$/Assets/RandomSpawnCoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Rotation.cs" />
+        <option value="$PROJECT_DIR$/Assets/Coin.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/RandomColor.cs" />
+        <option value="$PROJECT_DIR$/Assets/PlayerScore.cs" />
+        <option value="$PROJECT_DIR$/Assets/PlayerCardScore.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/PlayerCardScore.cs" />
+        <option value="$PROJECT_DIR$/Assets/Zona.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/AIController.cs" />
+        <option value="$PROJECT_DIR$/Assets/AIAgent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/ZombiManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ZoneDestroy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/TwitchChat.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/TestControlCharacter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/PlayerScore.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Survivor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ZombieBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ChatController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ZombiManager.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1reaRIScgazWmiMxWTN5SjSKRog" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34915015" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.29957506" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build\Twitch Chat Game.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="E:\git\Enginea\Unity\Twitch Chat Game\Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="13192">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="13192" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d307b80e-77ce-4b90-aa50-9d16329edb7e" name="Default Changelist" comment="" />
+      <created>1619339002163</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619339002163</updated>
+      <workItem from="1619339012729" duration="13703000" />
+      <workItem from="1619359138244" duration="14595000" />
+      <workItem from="1619380922304" duration="4198000" />
+      <workItem from="1619421508157" duration="3698000" />
+      <workItem from="1619512646709" duration="1750000" />
+      <workItem from="1619554014476" duration="79000" />
+      <workItem from="1619554115450" duration="6517000" />
+      <workItem from="1619602022112" duration="190000" />
+      <workItem from="1619606900683" duration="51000" />
+      <workItem from="1620897945279" duration="8547000" />
+      <workItem from="1620987114942" duration="4517000" />
+      <workItem from="1620991703051" duration="2271000" />
+      <workItem from="1621504830647" duration="2278000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="406" height="464" key="DebuggerActiveHint" timestamp="1619372272744">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="406" height="464" key="DebuggerActiveHint/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1619372272744" />
+    <state width="1446" height="76" key="GridCell.Tab.0.bottom" timestamp="1621506588905">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1446" height="76" key="GridCell.Tab.0.bottom/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621506588905" />
+    <state width="1446" height="76" key="GridCell.Tab.0.center" timestamp="1621506588905">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1446" height="76" key="GridCell.Tab.0.center/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621506588905" />
+    <state width="1446" height="76" key="GridCell.Tab.0.left" timestamp="1621506588904">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1446" height="76" key="GridCell.Tab.0.left/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621506588904" />
+    <state width="1446" height="76" key="GridCell.Tab.0.right" timestamp="1621506588905">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1446" height="76" key="GridCell.Tab.0.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621506588905" />
+    <state width="1446" height="76" key="GridCell.Tab.1.bottom" timestamp="1621506714859">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1446" height="76" key="GridCell.Tab.1.bottom/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621506714859" />
+    <state width="1446" height="76" key="GridCell.Tab.1.center" timestamp="1621506714858">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1446" height="76" key="GridCell.Tab.1.center/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621506714858" />
+    <state width="1446" height="76" key="GridCell.Tab.1.left" timestamp="1621506714858">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1446" height="76" key="GridCell.Tab.1.left/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621506714858" />
+    <state width="1446" height="76" key="GridCell.Tab.1.right" timestamp="1621506714858">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1446" height="76" key="GridCell.Tab.1.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621506714858" />
+    <state width="1443" height="76" key="GridCell.Tab.2.bottom" timestamp="1620908413818">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1443" height="76" key="GridCell.Tab.2.bottom/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1620908413818" />
+    <state width="1443" height="76" key="GridCell.Tab.2.center" timestamp="1620908413817">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1443" height="76" key="GridCell.Tab.2.center/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1620908413817" />
+    <state width="1443" height="76" key="GridCell.Tab.2.left" timestamp="1620908413817">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1443" height="76" key="GridCell.Tab.2.left/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1620908413817" />
+    <state width="1443" height="76" key="GridCell.Tab.2.right" timestamp="1620908413817">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1443" height="76" key="GridCell.Tab.2.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1620908413817" />
+    <state width="1443" height="76" key="GridCell.Tab.3.bottom" timestamp="1620908413818">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1443" height="76" key="GridCell.Tab.3.bottom/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1620908413818" />
+    <state width="1443" height="76" key="GridCell.Tab.3.center" timestamp="1620908413818">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1443" height="76" key="GridCell.Tab.3.center/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1620908413818" />
+    <state width="1443" height="76" key="GridCell.Tab.3.left" timestamp="1620908413818">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1443" height="76" key="GridCell.Tab.3.left/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1620908413818" />
+    <state width="1443" height="76" key="GridCell.Tab.3.right" timestamp="1620908413818">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state width="1443" height="76" key="GridCell.Tab.3.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1620908413818" />
+    <state x="807" y="276" key="RiderGenerateDialog" timestamp="1619351292042">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state x="807" y="276" key="RiderGenerateDialog/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1619351292042" />
+    <state x="589" y="262" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1619513066596">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state x="589" y="262" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1619513066596" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Script/ZombiManager.cs</url>
+          <line>136</line>
+          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Script\ZombiManager.cs" initialLine="136">
+            <startOffsets>
+              <option value="3566" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3579" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Script/ZombiManager.cs</url>
+          <line>134</line>
+          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Script\ZombiManager.cs" initialLine="134">
+            <startOffsets>
+              <option value="3492" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3535" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
