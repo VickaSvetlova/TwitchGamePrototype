@@ -47,12 +47,12 @@
         <option value="$PROJECT_DIR$/Assets/Script/TestControlCharacter.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/PlayerScore.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ZombieBase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/Survivor.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ChatController.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ZombiManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/BaseWeapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/IDestroyer.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/BaseBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Survivor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/BaseWeapon.cs" />
       </list>
     </option>
   </component>
@@ -119,7 +119,7 @@
       <workItem from="1620991703051" duration="2271000" />
       <workItem from="1621504830647" duration="2981000" />
       <workItem from="1621508561936" duration="1880000" />
-      <workItem from="1621587539818" duration="4239000" />
+      <workItem from="1621587539818" duration="6960000" />
     </task>
     <servers />
   </component>

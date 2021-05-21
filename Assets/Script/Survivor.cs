@@ -7,26 +7,39 @@ public enum StateSurvivor
 {
     idle,
     aim,
+    reloading
+}
+
+public enum StateAction
+{
     autoShoot,
     aimShoot,
-    shootHead,
-    reloading
+    shootHead
 }
 
 
 public class Survivor : MonoBehaviour
 
 {
+    private BaseWeapon _weapon;
     [SerializeField] private string[] commands;
-    private StateSurvivor state;
+    private StateSurvivor _stateSurvivor;
     public ChatController.User user;
     private Transform targetAim = null;
     [SerializeField] private float lookRadius;
 
-    public StateSurvivor State
+    public StateSurvivor State_Survivor
     {
-        get => state;
-        set => state = value;
+        get => _stateSurvivor;
+        set => _stateSurvivor = value;
+    }
+
+    private StateAction State_Action = StateAction.autoShoot;
+
+    public BaseWeapon Weapon
+    {
+        get => _weapon;
+        set => _weapon = value;
     }
 
     private ZombieBase lastZomby;
@@ -39,25 +52,32 @@ public class Survivor : MonoBehaviour
             if (lastZomby != null) lastZomby.LookAtMy(false);
             tempZombi.LookAtMy(true);
             targetAim = tempZombi.transform;
-            State = state = StateSurvivor.aim;
+            State_Survivor = _stateSurvivor = StateSurvivor.aim;
             lastZomby = tempZombi;
         }
     }
 
     private void Update()
     {
-        switch (State)
+        switch (State_Survivor)
         {
             case StateSurvivor.idle:
                 break;
             case StateSurvivor.aim:
                 Aiming();
-                break;
-            case StateSurvivor.autoShoot:
-                break;
-            case StateSurvivor.aimShoot:
-                break;
-            case StateSurvivor.shootHead:
+                switch (State_Action)
+                {
+                    case StateAction.autoShoot:
+                        _weapon.Shoot(TimeAiming.auto);
+                        break;
+                    case StateAction.aimShoot:
+                        _weapon.Shoot(TimeAiming.aiming);
+                        break;
+                    case StateAction.shootHead:
+                        _weapon.Shoot(TimeAiming.headShoot);
+                        break;
+                }
+
                 break;
             case StateSurvivor.reloading:
                 break;
@@ -75,7 +95,7 @@ public class Survivor : MonoBehaviour
             float distance = Vector3.Distance(target, thisPos);
             if (distance < lookRadius)
             {
-                State = StateSurvivor.idle;
+                State_Survivor = StateSurvivor.idle;
                 targetAim = null;
                 lastZomby.LookAtMy(false);
                 return;
