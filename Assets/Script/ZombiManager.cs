@@ -34,13 +34,12 @@ public class ZombiManager : MonoBehaviour
     {
         _nameZombi.AddRange(nameZombi);
         ResetRandom();
-        
     }
 
     public void StateManager(bool state)
     {
         timerSpawnZombi = CooldownSpawnZombi();
-        
+
         if (state)
         {
             StartCoroutine(timerSpawnZombi);
@@ -100,7 +99,7 @@ public class ZombiManager : MonoBehaviour
 
     private void ZombiConstructor(ZombieBase zombieBase)
     {
-        zombieBase.Name = TakeRandomName();//TakeRandomName();
+        zombieBase.Name = TakeRandomName(); //TakeRandomName();
         zombieBase.health = 5;
         zombieBase.targetMove = moveTarget.position;
         zombieBase.walkSpeed = 2f;
@@ -142,6 +141,15 @@ public class ZombiManager : MonoBehaviour
     public void NextWave()
     {
         countWave += 1;
+        if (countWave > waveCont.Length-1)
+        {
+           
+            if(timerSpawnZombi!=null) StopCoroutine(timerSpawnZombi);
+            ManagerState = false;
+            return; //all wave end}
+        }
+
+        
     }
 
     public ZombieBase CheckZombiName(string name)

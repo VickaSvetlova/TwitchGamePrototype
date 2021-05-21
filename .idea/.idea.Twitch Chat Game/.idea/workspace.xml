@@ -47,8 +47,8 @@
         <option value="$PROJECT_DIR$/Assets/Script/PlayerScore.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ZombieBase.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Survivor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/ZombiManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ChatController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ZombiManager.cs" />
       </list>
     </option>
   </component>
@@ -115,6 +115,7 @@
       <workItem from="1620991703051" duration="2271000" />
       <workItem from="1621504830647" duration="2981000" />
       <workItem from="1621508561936" duration="1880000" />
+      <workItem from="1621587539818" duration="2180000" />
     </task>
     <servers />
   </component>
@@ -207,5 +208,24 @@
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
     <state x="589" y="262" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1619513066596" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Script/ZombiManager.cs</url>
+          <line>148</line>
+          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Script\ZombiManager.cs" initialLine="142">
+            <startOffsets>
+              <option value="3795" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3817" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
