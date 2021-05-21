@@ -660,7 +660,7 @@ MonoBehaviour:
   - Borat
   ManagerState: 1
   countZombiInWave: 0
-  timerNextWave: 5
+  timerNextWave: 10
 --- !u!4 &950731888
 Transform:
   m_ObjectHideFlags: 0
