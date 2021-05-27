@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Script;
@@ -30,6 +31,7 @@ public class Survivor : MonoBehaviour
     [SerializeField] private float lookRadius;
     [SerializeField] private string[] commandsAction;
     public List<Command> _commandsStack = new List<Command>();
+    private IEnumerator _commands;
 
     public StateSurvivor State_Survivor
     {
@@ -43,6 +45,11 @@ public class Survivor : MonoBehaviour
     {
         get => _weapon;
         set => _weapon = value;
+    }
+
+    private void Start()
+    {
+        Weapon = new BaseWeapon(0.5f, 1f, 2f);
     }
 
     private ZombieBase lastZomby;
@@ -80,6 +87,11 @@ public class Survivor : MonoBehaviour
 
     private void Update()
     {
+        SwitctAction();
+    }
+
+    private void SwitctAction()
+    {
         switch (State_Survivor)
         {
             case StateSurvivor.idle:
@@ -88,24 +100,21 @@ public class Survivor : MonoBehaviour
                 Aiming();
                 if (_weapon == null) return;
                 if (_commandsStack.Count <= 0) return;
-                // switch (State_Action)
-                // {
-                //     case StateAction.autoShoot:
-                //         _weapon.Shoot(TimeAiming.auto);
-                //         break;
-                //     case StateAction.aimShoot:
-                //         _weapon.Shoot(TimeAiming.aiming);
-                //         break;
-                //     case StateAction.shootHead:
-                //         _weapon.Shoot(TimeAiming.headShoot);
-                //         break;
-                // }
+                if (_commandsStack.Count > 0 && _commandsStack == null)
+                {
+                    // _commands = CommandStack(_weapon);
+                }
 
                 break;
             case StateSurvivor.reloading:
                 break;
         }
     }
+
+    // private IEnumerator CommandStack(BaseWeapon baseWeapon)
+    // {
+    //     yield return 
+    // }
 
     private void Aiming()
     {
@@ -121,14 +130,11 @@ public class Survivor : MonoBehaviour
                 State_Survivor = StateSurvivor.idle;
                 targetAim = null;
                 lastZomby.LookAtMy(false);
+                if (_commandsStack.Count > 0) _commandsStack.Clear();
                 return;
             }
 
             Debug.DrawLine(transform.position, targetAim.position, Color.red);
-        }
-        else
-        {
-            if (_commandsStack.Count > 0) _commandsStack.Clear();
         }
     }
 

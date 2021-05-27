@@ -49,12 +49,12 @@
         <option value="$PROJECT_DIR$/Assets/Script/ZombieBase.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/IDestroyer.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/BaseBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/BaseWeapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ChatController.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/CommandsStack.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ZombiManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/Command.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/BaseWeapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Survivor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Command.cs" />
       </list>
     </option>
   </component>
@@ -124,7 +124,7 @@
       <workItem from="1621587539818" duration="6960000" />
       <workItem from="1621940226069" duration="6029000" />
       <workItem from="1621947803339" duration="687000" />
-      <workItem from="1622112596216" duration="442000" />
+      <workItem from="1622112596216" duration="5262000" />
     </task>
     <servers />
   </component>
@@ -141,38 +141,38 @@
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
     <state width="406" height="464" key="DebuggerActiveHint/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1619372272744" />
-    <state width="1447" height="76" key="GridCell.Tab.0.bottom" timestamp="1621942756024">
+    <state width="1449" height="76" key="GridCell.Tab.0.bottom" timestamp="1622112748786">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1447" height="76" key="GridCell.Tab.0.bottom/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621942756024" />
-    <state width="1447" height="76" key="GridCell.Tab.0.center" timestamp="1621942756024">
+    <state width="1449" height="76" key="GridCell.Tab.0.bottom/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1622112748786" />
+    <state width="1449" height="76" key="GridCell.Tab.0.center" timestamp="1622112748785">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1447" height="76" key="GridCell.Tab.0.center/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621942756024" />
-    <state width="1447" height="76" key="GridCell.Tab.0.left" timestamp="1621942756024">
+    <state width="1449" height="76" key="GridCell.Tab.0.center/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1622112748785" />
+    <state width="1449" height="76" key="GridCell.Tab.0.left" timestamp="1622112748785">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1447" height="76" key="GridCell.Tab.0.left/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621942756024" />
-    <state width="1447" height="76" key="GridCell.Tab.0.right" timestamp="1621942756024">
+    <state width="1449" height="76" key="GridCell.Tab.0.left/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1622112748785" />
+    <state width="1449" height="76" key="GridCell.Tab.0.right" timestamp="1622112748785">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1447" height="76" key="GridCell.Tab.0.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621942756024" />
-    <state width="1447" height="76" key="GridCell.Tab.1.bottom" timestamp="1621942785654">
+    <state width="1449" height="76" key="GridCell.Tab.0.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1622112748785" />
+    <state width="1449" height="76" key="GridCell.Tab.1.bottom" timestamp="1622112819706">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1447" height="76" key="GridCell.Tab.1.bottom/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621942785654" />
-    <state width="1447" height="76" key="GridCell.Tab.1.center" timestamp="1621942785654">
+    <state width="1449" height="76" key="GridCell.Tab.1.bottom/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1622112819706" />
+    <state width="1449" height="76" key="GridCell.Tab.1.center" timestamp="1622112819706">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1447" height="76" key="GridCell.Tab.1.center/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621942785654" />
-    <state width="1447" height="76" key="GridCell.Tab.1.left" timestamp="1621942785654">
+    <state width="1449" height="76" key="GridCell.Tab.1.center/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1622112819706" />
+    <state width="1449" height="76" key="GridCell.Tab.1.left" timestamp="1622112819706">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1447" height="76" key="GridCell.Tab.1.left/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621942785654" />
-    <state width="1447" height="76" key="GridCell.Tab.1.right" timestamp="1621942785654">
+    <state width="1449" height="76" key="GridCell.Tab.1.left/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1622112819706" />
+    <state width="1449" height="76" key="GridCell.Tab.1.right" timestamp="1622112819706">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1447" height="76" key="GridCell.Tab.1.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621942785654" />
+    <state width="1449" height="76" key="GridCell.Tab.1.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1622112819706" />
     <state width="1446" height="76" key="GridCell.Tab.2.bottom" timestamp="1621508430036">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
@@ -205,10 +205,10 @@
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
     <state width="1446" height="76" key="GridCell.Tab.3.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1621508430036" />
-    <state x="807" y="276" key="RiderGenerateDialog" timestamp="1619351292042">
+    <state x="807" y="276" key="RiderGenerateDialog" timestamp="1622122319260">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state x="807" y="276" key="RiderGenerateDialog/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1619351292042" />
+    <state x="807" y="276" key="RiderGenerateDialog/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1622122319260" />
     <state width="752" height="496" key="XDebugger.FullValuePopup" timestamp="1621506978672">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
@@ -222,30 +222,43 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Script/Survivor.cs</url>
-          <line>66</line>
-          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Script\Survivor.cs" initialLine="66">
+          <url>file://$PROJECT_DIR$/Assets/Script/Command.cs</url>
+          <line>14</line>
+          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Script\Command.cs" initialLine="14">
             <startOffsets>
-              <option value="1479" />
+              <option value="217" />
             </startOffsets>
             <endOffsets>
-              <option value="1502" />
+              <option value="266" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Script/Survivor.cs</url>
-          <line>64</line>
-          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Script\Survivor.cs" initialLine="64">
+          <url>file://$PROJECT_DIR$/Assets/Script/Command.cs</url>
+          <line>20</line>
+          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Script\Command.cs" initialLine="20">
             <startOffsets>
-              <option value="1426" />
+              <option value="355" />
             </startOffsets>
             <endOffsets>
-              <option value="1448" />
+              <option value="406" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Script/Command.cs</url>
+          <line>26</line>
+          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Script\Command.cs" initialLine="26">
+            <startOffsets>
+              <option value="497" />
+            </startOffsets>
+            <endOffsets>
+              <option value="551" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

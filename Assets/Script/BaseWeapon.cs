@@ -5,7 +5,7 @@ using UnityEngine;
 public enum TimeAiming
 {
     auto,
-    aiming,
+    aim,
     headShoot
 };
 
@@ -15,12 +15,12 @@ public class BaseWeapon : MonoBehaviour
     protected float FireRate;
     protected float ReloadTime;
 
-    protected float auto;
-    protected float aiming;
-    protected float headShoot;
+    private float auto;
+    private float aiming;
+    private float headShoot;
 
     protected float Accuracy;
-    
+
     [Range(0, 1)] protected float LevelProficiency;
 
     public BaseBullet BaseBullet
@@ -29,7 +29,14 @@ public class BaseWeapon : MonoBehaviour
         set => _baseBullet = value;
     }
 
-    private IEnumerator _timer;
+    public IEnumerator _timer;
+
+    public BaseWeapon(float auto, float aiming, float headShoot)
+    {
+        this.auto = auto;
+        this.aiming = aiming;
+        this.headShoot = headShoot;
+    }
 
     public void Shoot(TimeAiming plusTimer)
     {
@@ -50,14 +57,14 @@ public class BaseWeapon : MonoBehaviour
     {
     }
 
-    IEnumerator CooldownFireRate(TimeAiming timeAiming)
+   private IEnumerator CooldownFireRate(TimeAiming timeAiming)
     {
         switch (timeAiming)
         {
             case TimeAiming.auto:
                 yield return new WaitForSeconds(auto);
                 break;
-            case TimeAiming.aiming:
+            case TimeAiming.aim:
                 break;
             case TimeAiming.headShoot:
                 break;
