@@ -6,141 +6,102 @@ using Script;
 using UnityEngine;
 
 
-public enum StateSurvivor
-{
-    idle,
-    aim,
-    reloading
-}
-
-public enum StateAction
-{
-    autoShoot,
-    aimShoot,
-    shootHead
-}
-
-
 public class Survivor : MonoBehaviour
 
 {
     private BaseWeapon _weapon;
-    private StateSurvivor _stateSurvivor;
     public ChatController.User user;
-    private Transform targetAim = null;
+    private GameObject targetAim = null;
     [SerializeField] private float lookRadius;
     [SerializeField] private string[] commandsAction;
-    public List<Command> _commandsStack = new List<Command>();
-    private IEnumerator _commands;
-
-    public StateSurvivor State_Survivor
-    {
-        get => _stateSurvivor;
-        set => _stateSurvivor = value;
-    }
-
-    private StateAction State_Action = StateAction.autoShoot;
-
+    private Queue<ICommand> SurvivorStates = new Queue<ICommand>();
+    private Queue<ICommand> WeaponsStates = new Queue<ICommand>();
+    private IEnumerator _survivorStateCoroutine;
+    private IEnumerator _weaponsStateCoroutine;
+    
     public BaseWeapon Weapon
     {
         get => _weapon;
         set => _weapon = value;
     }
 
+    public float LookRadius => lookRadius;
+
+    private void Awake()
+    {
+        SurvivorStates.Enqueue(new IdleCommand());
+        WeaponsStates.Enqueue(new IdleCommand());
+    }
+
     private void Start()
     {
         Weapon = new BaseWeapon(0.5f, 1f, 2f);
+        _survivorStateCoroutine = SurvivorStatesCoroutine();
+        _weaponsStateCoroutine = WeaponsStatesCoroutine();
+        StartCoroutine(_survivorStateCoroutine);
+        StartCoroutine(_weaponsStateCoroutine);
+    }
+
+    private IEnumerator WeaponsStatesCoroutine()
+    {
+        yield break;
+    }
+
+    private IEnumerator SurvivorStatesCoroutine()
+    {
+        while (true)
+        {
+            CurrentSurvivorCommand = SurvivorStates.Dequeue();
+            yield return CurrentSurvivorCommand.Execute();
+            if (SurvivorStates.Count == 0) SurvivorStates.Enqueue(CurrentSurvivorCommand);
+            yield return null;
+        }
     }
 
     private ZombieBase lastZomby;
+    private ICommand CurrentSurvivorCommand;
 
     public void TakeCommand(string command)
     {
         var tempZombi = user.ChatController.ChekNameZombie(command);
         if (tempZombi)
         {
+            
             if (lastZomby != null) lastZomby.LookAtMy(false);
             tempZombi.LookAtMy(true);
-            targetAim = tempZombi.transform;
-            State_Survivor = _stateSurvivor = StateSurvivor.aim;
-            _commandsStack.Clear();
+           // targetAim = tempZombi.transform;
             lastZomby = tempZombi;
+            CurrentSurvivorCommand?.Interrupt();
+            SurvivorStates.Enqueue(new AimingCommand(tempZombi.gameObject,this));
         }
-        else
-        {
-            //send command stack
-            if (targetAim != null)
-            {
-                CommandsStack(command);
-            }
-        }
+        // else
+        // {
+        //     //send command stack
+        //     if (targetAim != null)
+        //     {
+        //         CommandsStack(command);
+        //     }
+        // }
+        
     }
+    
 
     private void CommandsStack(string content)
     {
         if (commandsAction.Contains(content.ToLower()))
         {
-            var commandTemp = new Command(content);
-            _commandsStack.Add(commandTemp);
+            //add comand
         }
     }
 
-    private void Update()
-    {
-        SwitctAction();
-    }
-
-    private void SwitctAction()
-    {
-        switch (State_Survivor)
-        {
-            case StateSurvivor.idle:
-                break;
-            case StateSurvivor.aim:
-                Aiming();
-                if (_weapon == null) return;
-                if (_commandsStack.Count <= 0) return;
-                if (_commandsStack.Count > 0 && _commandsStack == null)
-                {
-                    // _commands = CommandStack(_weapon);
-                }
-
-                break;
-            case StateSurvivor.reloading:
-                break;
-        }
-    }
-
-    // private IEnumerator CommandStack(BaseWeapon baseWeapon)
-    // {
-    //     yield return 
-    // }
 
     private void Aiming()
     {
-        if (targetAim != null)
-        {
-            Vector3 target = targetAim.position;
-            target.y = 0;
-            Vector3 thisPos = transform.position;
-            thisPos.y = 0;
-            float distance = Vector3.Distance(target, thisPos);
-            if (distance < lookRadius)
-            {
-                State_Survivor = StateSurvivor.idle;
-                targetAim = null;
-                lastZomby.LookAtMy(false);
-                if (_commandsStack.Count > 0) _commandsStack.Clear();
-                return;
-            }
-
-            Debug.DrawLine(transform.position, targetAim.position, Color.red);
-        }
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
+        Gizmos.DrawWireSphere(transform.position, LookRadius);
     }
 }
