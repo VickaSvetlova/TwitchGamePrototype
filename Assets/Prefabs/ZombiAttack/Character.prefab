@@ -109,6 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6fa001e349943cf997633e6ff48f86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commands:
-  - 
+  commands: []
   lookRadius: 8.49
+  commandsAction:
+  - autoshoot
+  - aimshoot
+  - headshoot

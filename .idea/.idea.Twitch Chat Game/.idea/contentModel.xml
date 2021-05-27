@@ -43,6 +43,8 @@
           <e p="Character.cs" t="Include" />
           <e p="ChatController.cs" t="Include" />
           <e p="Coin.cs" t="Include" />
+          <e p="Command.cs" t="Include" />
+          <e p="CommandsStack.cs" t="Include" />
           <e p="EnemySpawner.cs" t="Include" />
           <e p="IDestroyer.cs" t="Include" />
           <e p="PlayerCardScore.cs" t="Include" />

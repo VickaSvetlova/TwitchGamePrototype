@@ -102,7 +102,7 @@ public class ZombiManager : MonoBehaviour
         zombieBase.Name = TakeRandomName(); //TakeRandomName();
         zombieBase.health = 5;
         zombieBase.targetMove = moveTarget.position;
-        zombieBase.walkSpeed = 2f;
+        zombieBase.walkSpeed = 1f;
         zombieBase.IDead += ZombiIsDead;
         zombieBase.IGoal += ZombiGoal;
     }
@@ -141,22 +141,19 @@ public class ZombiManager : MonoBehaviour
     public void NextWave()
     {
         countWave += 1;
-        if (countWave > waveCont.Length-1)
+        if (countWave > waveCont.Length - 1)
         {
-           
-            if(timerSpawnZombi!=null) StopCoroutine(timerSpawnZombi);
+            if (timerSpawnZombi != null) StopCoroutine(timerSpawnZombi);
             ManagerState = false;
             return; //all wave end}
         }
-
-        
     }
 
     public ZombieBase CheckZombiName(string name)
     {
         foreach (var zombi in zombiClons)
         {
-            if (zombi.Name.ToLower() == name.ToLower())
+            if (string.Equals(zombi.Name, name, StringComparison.CurrentCultureIgnoreCase))
             {
                 return zombi;
             }
