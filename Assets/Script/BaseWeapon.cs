@@ -2,51 +2,41 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public enum TimeAiming
-{
-    auto,
-    aim,
-    headShoot
-};
-
 public class BaseWeapon : MonoBehaviour
 {
-    private BaseBullet _baseBullet;
-    protected float FireRate;
-    protected float ReloadTime;
+    public float AutoCD { get; }
+    public float AimingCD { get; }
+    public float HeadShootCD { get; }
 
-    private float auto;
-    private float aiming;
-    private float headShoot;
+    //CD= cooldown
+    public BaseBullet BaseBullet { get; }
 
-    protected float Accuracy;
+    private float FireRate;
+    private float ReloadTime;
+    private float Accuracy;
+
+    private IEnumerator _timer;
 
     [Range(0, 1)] protected float LevelProficiency;
 
-    public BaseBullet BaseBullet
+
+    public BaseWeapon(float auto, float aiming, float headShoot, float fireRate)
     {
-        get => _baseBullet;
-        set => _baseBullet = value;
+        this.AutoCD = auto;
+        this.AimingCD = aiming;
+        this.HeadShootCD = headShoot;
+        this.FireRate = fireRate;
     }
 
-    public IEnumerator _timer;
-
-    public BaseWeapon(float auto, float aiming, float headShoot)
+    public IEnumerator Shoot()
     {
-        this.auto = auto;
-        this.aiming = aiming;
-        this.headShoot = headShoot;
-    }
-
-    public void Shoot(TimeAiming plusTimer)
-    {
-        if (_timer != null) return;
-        _timer = CooldownFireRate(plusTimer);
-        StartCoroutine(_timer);
+        yield return new WaitForSeconds(FireRate);
+        Fire();
     }
 
     private void Fire()
     {
+        Debug.Log("fire");
     }
 
     public void Reload()
@@ -55,21 +45,5 @@ public class BaseWeapon : MonoBehaviour
 
     public void Change()
     {
-    }
-
-   private IEnumerator CooldownFireRate(TimeAiming timeAiming)
-    {
-        switch (timeAiming)
-        {
-            case TimeAiming.auto:
-                yield return new WaitForSeconds(auto);
-                break;
-            case TimeAiming.aim:
-                break;
-            case TimeAiming.headShoot:
-                break;
-        }
-
-        Fire();
     }
 }

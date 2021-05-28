@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Script;
 using UnityEngine;
 
@@ -9,42 +7,61 @@ using UnityEngine;
 public class Survivor : MonoBehaviour
 
 {
-    private BaseWeapon _weapon;
-    public ChatController.User user;
-    private GameObject targetAim = null;
     [SerializeField] private float lookRadius;
-    [SerializeField] private string[] commandsAction;
+    private BaseWeapon _weapon;
+    public GameObject TargetAim { get; private set; }
+    public ChatController.User user {private get; set; }
+   
+    private List<CommandFactory> CommandFactories = new List<CommandFactory>();
+    
     private Queue<ICommand> SurvivorStates = new Queue<ICommand>();
     private Queue<ICommand> WeaponsStates = new Queue<ICommand>();
+    
     private IEnumerator _survivorStateCoroutine;
     private IEnumerator _weaponsStateCoroutine;
     
+    private ZombieBase lastZomby;
+    
+    private ICommand CurrentSurvivorCommand;
+    private ICommand CurrentWeaponCommand;
+
     public BaseWeapon Weapon
     {
         get => _weapon;
-        set => _weapon = value;
+        private set => _weapon = value;
     }
 
     public float LookRadius => lookRadius;
 
     private void Awake()
     {
+        CommandFactories.Add(new AimedShotFactory());
+        CommandFactories.Add(new HeadshotShotFactory());
+
         SurvivorStates.Enqueue(new IdleCommand());
         WeaponsStates.Enqueue(new IdleCommand());
     }
 
     private void Start()
     {
-        Weapon = new BaseWeapon(0.5f, 1f, 2f);
+        Weapon = new BaseWeapon(0.5f, 1f, 2f, 2f);
+
         _survivorStateCoroutine = SurvivorStatesCoroutine();
         _weaponsStateCoroutine = WeaponsStatesCoroutine();
+
         StartCoroutine(_survivorStateCoroutine);
         StartCoroutine(_weaponsStateCoroutine);
     }
 
     private IEnumerator WeaponsStatesCoroutine()
     {
-        yield break;
+        while (true)
+        {
+            CurrentWeaponCommand = WeaponsStates.Dequeue();
+            yield return CurrentWeaponCommand.Execute();
+            if (WeaponsStates.Count == 0) WeaponsStates.Enqueue(new AutoShootCommand(TargetAim, this));
+            yield return null;
+        }
     }
 
     private IEnumerator SurvivorStatesCoroutine()
@@ -58,45 +75,36 @@ public class Survivor : MonoBehaviour
         }
     }
 
-    private ZombieBase lastZomby;
-    private ICommand CurrentSurvivorCommand;
-
     public void TakeCommand(string command)
     {
         var tempZombi = user.ChatController.ChekNameZombie(command);
         if (tempZombi)
         {
-            
             if (lastZomby != null) lastZomby.LookAtMy(false);
             tempZombi.LookAtMy(true);
-           // targetAim = tempZombi.transform;
+            TargetAim = tempZombi.gameObject;
             lastZomby = tempZombi;
-            CurrentSurvivorCommand?.Interrupt();
-            SurvivorStates.Enqueue(new AimingCommand(tempZombi.gameObject,this));
-        }
-        // else
-        // {
-        //     //send command stack
-        //     if (targetAim != null)
-        //     {
-        //         CommandsStack(command);
-        //     }
-        // }
-        
-    }
-    
 
-    private void CommandsStack(string content)
-    {
-        if (commandsAction.Contains(content.ToLower()))
+            CurrentSurvivorCommand?.Interrupt(); //stop previos command
+            SurvivorStates.Clear();
+            SurvivorStates.Enqueue(new AimingCommand(TargetAim, this));
+
+            CurrentWeaponCommand?.Interrupt();
+            WeaponsStates.Clear();
+            WeaponsStates.Enqueue(new AutoShootCommand(TargetAim, this));
+        }
+
+        else
         {
-            //add comand
+            foreach (var factory in CommandFactories)
+            {
+                if (factory.Match(command))
+                {
+                    WeaponsStates.Enqueue(factory.CreateCommand(this));
+                    break;
+                }
+            }
         }
-    }
-
-
-    private void Aiming()
-    {
     }
 
     private void OnDrawGizmosSelected()

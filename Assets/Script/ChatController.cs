@@ -57,7 +57,7 @@ public class ChatController : MonoBehaviour
 
     private void Update()
     {
-        if (!_twitchClient.Connected)
+        if (_twitchClient != null && !_twitchClient.Connected)
         {
             Connect();
         }
@@ -86,10 +86,10 @@ public class ChatController : MonoBehaviour
 
     private void ReadChat()
     {
-        if (_twitchClient.Available > 0)
+        if (_twitchClient != null && _twitchClient.Available > 0)
         {
             var message = _reader.ReadLine(); //прочитать сообщение
-            print(message);
+         //   print(message);
             if (message.Contains("PRIVMSG"))
             {
                 //взять имя полльзователя и разбить на строку
