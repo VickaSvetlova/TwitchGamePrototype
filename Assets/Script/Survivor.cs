@@ -9,7 +9,7 @@ public class Survivor : MonoBehaviour
 {
     [SerializeField] private float lookRadius;
     private BaseWeapon _weapon;
-    public GameObject TargetAim { get;  set; }
+    public GameObject TargetAim { get; set; }
     public ChatController.User user { private get; set; }
 
     private List<CommandFactory> CommandFactories = new List<CommandFactory>();
@@ -24,6 +24,9 @@ public class Survivor : MonoBehaviour
 
     private ICommand CurrentSurvivorCommand;
     private ICommand CurrentWeaponCommand;
+    [SerializeField] public Transform _gunpoint;
+    
+    
 
     public BaseWeapon Weapon
     {
@@ -32,6 +35,12 @@ public class Survivor : MonoBehaviour
     }
 
     public float LookRadius => lookRadius;
+
+    public Transform Gunpoint
+    {
+        get => _gunpoint;
+        set => _gunpoint = value;
+    }
 
     private void Awake()
     {

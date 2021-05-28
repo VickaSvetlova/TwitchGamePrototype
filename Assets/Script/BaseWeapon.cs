@@ -10,7 +10,7 @@ public class BaseWeapon
     public float HeadShootCD { get; }
 
     //CD= cooldown
-    public BaseBullet BaseBullet { get; }
+    private BaseBullet BaseBullet { get; }
 
     private float FireRate;
     private float ReloadTime;
@@ -39,8 +39,24 @@ public class BaseWeapon
 
     private void Fire()
     {
+        var tempBullet = new GameObject();
+        tempBullet.AddComponent<BaseBullet>();
+        tempBullet.AddComponent<SphereCollider>().radius=0.1f;
+
+        //temporary solution
+        var direction = owner.TargetAim.transform.position - owner.gameObject.transform.position;
+        var trail = tempBullet.AddComponent<TrailRenderer>();
+        trail.time = 0.04f;
+        trail.startWidth = 0.01f;
+        trail.endWidth = 0.1f;
+
+        tempBullet.transform.position = owner.Gunpoint.position;
+        tempBullet.transform.forward = direction;
+
         Debug.Log("fire");
         Debug.DrawLine(owner.gameObject.transform.position, owner.TargetAim.transform.position, Color.red);
+
+        //
     }
 
     public void Reload()

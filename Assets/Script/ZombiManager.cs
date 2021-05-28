@@ -75,6 +75,7 @@ public class ZombiManager : MonoBehaviour
     {
         var clonZomby = Instantiate(zombiPrefab);
         var clon = clonZomby.AddComponent<ZombieBase>();
+        clonZomby.AddComponent<CapsuleCollider>();
         zombiClons.Add(clon);
         countZombiInWave -= 1;
         ZombiConstructor(clon);
@@ -102,7 +103,7 @@ public class ZombiManager : MonoBehaviour
         zombieBase.Name = TakeRandomName(); //TakeRandomName();
         zombieBase.health = 5;
         zombieBase.targetMove = moveTarget.position;
-        zombieBase.walkSpeed = 0.5f;
+        zombieBase.walkSpeed = 0.1f;
         zombieBase.IDead += ZombiIsDead;
         zombieBase.IGoal += ZombiGoal;
     }

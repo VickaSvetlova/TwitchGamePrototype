@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Script
 {
-    public class ZombieBase : MonoBehaviour
+    public class ZombieBase : MonoBehaviour, IDestroyer
     {
         enum States
         {
@@ -99,6 +99,12 @@ namespace Script
         public void Goal()
         {
             IGoal?.Invoke(gameObject.GetComponent<ZombieBase>());
+        }
+
+
+        public void DestroyOnColision(GameObject gameObject)
+        {
+            
         }
     }
 }
