@@ -9,19 +9,19 @@ public class Survivor : MonoBehaviour
 {
     [SerializeField] private float lookRadius;
     private BaseWeapon _weapon;
-    public GameObject TargetAim { get; private set; }
-    public ChatController.User user {private get; set; }
-   
+    public GameObject TargetAim { get;  set; }
+    public ChatController.User user { private get; set; }
+
     private List<CommandFactory> CommandFactories = new List<CommandFactory>();
-    
+
     private Queue<ICommand> SurvivorStates = new Queue<ICommand>();
     private Queue<ICommand> WeaponsStates = new Queue<ICommand>();
-    
+
     private IEnumerator _survivorStateCoroutine;
     private IEnumerator _weaponsStateCoroutine;
-    
+
     private ZombieBase lastZomby;
-    
+
     private ICommand CurrentSurvivorCommand;
     private ICommand CurrentWeaponCommand;
 
@@ -44,7 +44,7 @@ public class Survivor : MonoBehaviour
 
     private void Start()
     {
-        Weapon = new BaseWeapon(0.5f, 1f, 2f, 2f);
+        Weapon = new BaseWeapon(this, 0.5f, 1f, 2f, 0.2f);
 
         _survivorStateCoroutine = SurvivorStatesCoroutine();
         _weaponsStateCoroutine = WeaponsStatesCoroutine();

@@ -102,7 +102,7 @@ public class ZombiManager : MonoBehaviour
         zombieBase.Name = TakeRandomName(); //TakeRandomName();
         zombieBase.health = 5;
         zombieBase.targetMove = moveTarget.position;
-        zombieBase.walkSpeed = 1f;
+        zombieBase.walkSpeed = 0.5f;
         zombieBase.IDead += ZombiIsDead;
         zombieBase.IGoal += ZombiGoal;
     }

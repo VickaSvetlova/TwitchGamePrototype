@@ -59,13 +59,13 @@
         <option value="$PROJECT_DIR$/Assets/Script/ZombieBase.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/IDestroyer.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/BaseBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/ZombiManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Command.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/CommandsStack.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ChatController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ZombiManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/BaseWeapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/ICommand.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Survivor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ICommand.cs" />
       </list>
     </option>
   </component>
@@ -137,7 +137,7 @@
       <workItem from="1622112596216" duration="5262000" />
       <workItem from="1622141768780" duration="5403000" />
       <workItem from="1622154264975" duration="4510000" />
-      <workItem from="1622186009695" duration="16166000" />
+      <workItem from="1622186009695" duration="18384000" />
     </task>
     <servers />
   </component>

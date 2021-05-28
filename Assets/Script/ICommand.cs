@@ -87,11 +87,16 @@ public class AutoShootCommand : ICommand
             }
 
             yield return new WaitForSeconds(coolDown);
-            Debug.Log("pulling the trigger");
+            DebugLog();
             yield return Player.Weapon.Shoot();
         }
 
-        // Debug.DrawLine(Player.transform.position, TargetAim.transform.position, Color.red);
+       
+    }
+
+    public virtual void DebugLog()
+    {
+        Debug.Log("pulling the trigger AutoShoot");
     }
 
     public void Interrupt()
@@ -117,6 +122,11 @@ public class AimedShotCommand : AutoShootCommand
     {
         this.coolDown = player.Weapon.AimingCD;
     }
+
+    public override void DebugLog()
+    {
+        Debug.Log("pulling the trigger AimedShoot");
+    }
 }
 
 public class AimedShotFactory : CommandFactory
@@ -128,7 +138,7 @@ public class AimedShotFactory : CommandFactory
 
     public override ICommand CreateCommand(Survivor player)
     {
-        return new AimingCommand(player.TargetAim, player);
+        return new AimedShotCommand(player.TargetAim, player);
     }
 }
 
@@ -140,6 +150,10 @@ public class HeadshotCommand : AutoShootCommand
     public HeadshotCommand(GameObject targetAim, Survivor player) : base(targetAim, player)
     {
         this.coolDown = player.Weapon.HeadShootCD;
+    }
+    public override void DebugLog()
+    {
+        Debug.Log("pulling the trigger HeadShoot");
     }
 }
 
