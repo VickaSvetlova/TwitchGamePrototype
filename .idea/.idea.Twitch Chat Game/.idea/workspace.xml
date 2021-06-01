@@ -63,9 +63,10 @@
         <option value="$PROJECT_DIR$/Assets/Script/ICommand.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Survivor.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/BaseWeapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/ZombieBase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/ZombiManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ITakeDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/BaseBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ZombiManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/ZombieBase.cs" />
       </list>
     </option>
   </component>
@@ -99,10 +100,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="18824">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="18824" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -138,6 +139,7 @@
       <workItem from="1622141768780" duration="5403000" />
       <workItem from="1622154264975" duration="4510000" />
       <workItem from="1622186009695" duration="23924000" />
+      <workItem from="1622534908281" duration="1554000" />
     </task>
     <servers />
   </component>
@@ -156,6 +158,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

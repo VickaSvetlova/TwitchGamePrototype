@@ -103,9 +103,10 @@ public class ZombiManager : MonoBehaviour
         zombieBase.Name = TakeRandomName(); //TakeRandomName();
         zombieBase.health = 5;
         zombieBase.targetMove = moveTarget.position;
-        zombieBase.walkSpeed = 0.1f;
+        zombieBase.walkSpeed = 1f;
         zombieBase.IDead += ZombiIsDead;
         zombieBase.IGoal += ZombiGoal;
+        
     }
 
     private string TakeRandomName()
@@ -130,6 +131,10 @@ public class ZombiManager : MonoBehaviour
 
     private void ZombiIsDead(ZombieBase obj)
     {
+        var tempZomby = obj.gameObject;
+        zombiClons.Remove(obj);
+        Destroy(tempZomby);
+        
     }
 
     private void ZombiRemove(ZombieBase obj)

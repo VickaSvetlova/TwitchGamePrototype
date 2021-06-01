@@ -4,9 +4,10 @@ using UnityEngine;
 public class BaseBullet : MonoBehaviour
 {
     private Rigidbody _rigidbody => GetComponent<Rigidbody>();
-    protected float Speed=7000f;
-    protected float Damage;
-    protected float DestroyTime=5f;
+    float Speed=7000f;
+    float Damage=1f;
+    float DestroyTime=5f;
+    public float stanEffect=0.5f;
 
     private void Awake()
     {
@@ -27,9 +28,16 @@ public class BaseBullet : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         var tempOther = other.collider.GetComponent<IDestroyer>();
+        var tempOtherDamge = other.collider.GetComponent<ITakeDamage>();
+        
+        if (tempOtherDamge != null)
+        {
+            tempOtherDamge.TakeDamage(gameObject,Damage);
+        }
         if (tempOther != null)
         {
             Destroy(gameObject);
         }
+        
     }
 }

@@ -39,9 +39,11 @@ public class BaseWeapon
 
     private void Fire()
     {
+        if (owner.TargetAim == null) return;
+        
         var tempBullet = new GameObject();
         tempBullet.AddComponent<BaseBullet>();
-        tempBullet.AddComponent<SphereCollider>().radius=0.1f;
+        tempBullet.AddComponent<SphereCollider>().radius = 0.1f;
 
         //temporary solution
         var direction = owner.TargetAim.transform.position - owner.gameObject.transform.position;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Script
 {
-    public class ZombieBase : MonoBehaviour, IDestroyer
+    public class ZombieBase : MonoBehaviour, IDestroyer, ITakeDamage
     {
         enum States
         {
@@ -38,7 +38,6 @@ namespace Script
         {
             _targetMarcker = GetComponentInChildren<TargetAim>().gameObject;
             _targetMarcker.SetActive(false);
-            
         }
 
         private void Update()
@@ -69,19 +68,6 @@ namespace Script
 
         public void TakeDamage(float damage, Bullet bullet)
         {
-            ShowEffect();
-            health -= damage;
-            if (health <= 0)
-            {
-                state = States.dead;
-            }
-            else
-            {
-                state = States.stay;
-                if (coldownTimerStanEffect != null) StopCoroutine(coldownTimerStanEffect);
-                coldownTimerStanEffect = ColdownTimerStanEffect(bullet.stanEffect);
-                StartCoroutine(coldownTimerStanEffect);
-            }
         }
 
         private IEnumerator ColdownTimerStanEffect(float bulletStanEffect)
@@ -102,9 +88,27 @@ namespace Script
         }
 
 
+        public void TakeDamage(GameObject owner, float damage)
+        {
+            ShowEffect();
+            health -= damage;
+            if (health <= 0)
+            {
+                state = States.dead;
+                IDead?.Invoke(this);
+            }
+            else
+            {
+                state = States.stay;
+                if (coldownTimerStanEffect != null) StopCoroutine(coldownTimerStanEffect);
+                coldownTimerStanEffect = ColdownTimerStanEffect(owner.GetComponent<BaseBullet>().stanEffect);
+                StartCoroutine(coldownTimerStanEffect);
+            }
+        }
+
         public void DestroyOnColision(GameObject gameObject)
         {
-            
+            Destroy(gameObject);
         }
     }
 }

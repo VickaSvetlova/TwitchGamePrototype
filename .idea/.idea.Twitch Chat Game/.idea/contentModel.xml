@@ -46,6 +46,7 @@
           <e p="EnemySpawner.cs" t="Include" />
           <e p="ICommand.cs" t="Include" />
           <e p="IDestroyer.cs" t="Include" />
+          <e p="ITakeDamage.cs" t="Include" />
           <e p="PlayerCardScore.cs" t="Include" />
           <e p="PlayerScore.cs" t="Include" />
           <e p="RandomSpawnCoint.cs" t="Include" />
