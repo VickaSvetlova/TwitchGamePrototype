@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="AiAgent.cs" t="Include" />
         <e p="AIController.cs" t="Include" />
+        <e p="CityManager.cs" t="Include" />
         <e p="Five Seamless Tileable Ground Textures" t="Include">
           <e p="read me.txt" t="Include" />
         </e>

@@ -22,6 +22,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../wannabe-resident-evil/Assets/WorldVisible.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ZoneDestroy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CityManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42A5878C-E129-4030-83AC-CCF18E43363F/52/bd6f5e57/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/BaseWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Zona.cs" root0="FORCE_HIGHLIGHTING" />
@@ -62,11 +63,12 @@
         <option value="$PROJECT_DIR$/Assets/Script/ChatController.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ICommand.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Survivor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/BaseWeapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ITakeDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/BaseBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ZombiManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/ZombieBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/BaseWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/CityManager.cs" />
       </list>
     </option>
   </component>
@@ -139,7 +141,7 @@
       <workItem from="1622141768780" duration="5403000" />
       <workItem from="1622154264975" duration="4510000" />
       <workItem from="1622186009695" duration="23924000" />
-      <workItem from="1622534908281" duration="1554000" />
+      <workItem from="1622534908281" duration="4125000" />
     </task>
     <servers />
   </component>
