@@ -22,6 +22,8 @@ namespace Script
         public float timeEffectStan;
         public float health;
         public float timeToDestroy;
+        public int hunger;
+        
         private GameObject _targetMarcker;
 
         private IEnumerator coldownTimerStanEffect;

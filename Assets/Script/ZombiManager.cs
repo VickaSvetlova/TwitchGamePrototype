@@ -15,6 +15,8 @@ public class ZombiManager : MonoBehaviour
     [SerializeField] private int[] waveCont = new[] {3, 6, 9, 12, 15};
 
     [SerializeField] private string[] nameZombi;
+
+    [SerializeField] private CityManager cityManager;
     private List<string> _nameZombi = new List<string>();
 
     private List<Transform> posRandom = new List<Transform>();
@@ -103,10 +105,10 @@ public class ZombiManager : MonoBehaviour
         zombieBase.Name = TakeRandomName(); //TakeRandomName();
         zombieBase.health = 5;
         zombieBase.targetMove = moveTarget.position;
-        zombieBase.walkSpeed = 1f;
+        zombieBase.walkSpeed = 5f;
         zombieBase.IDead += ZombiIsDead;
         zombieBase.IGoal += ZombiGoal;
-        
+        zombieBase.hunger = Random.Range(1, 5);
     }
 
     private string TakeRandomName()
@@ -126,6 +128,7 @@ public class ZombiManager : MonoBehaviour
     private void ZombiGoal(ZombieBase obj)
     {
         //zombi is it my hosbrand
+        cityManager.CityDamage(obj.hunger);
         ZombiRemove(obj);
     }
 
@@ -134,12 +137,12 @@ public class ZombiManager : MonoBehaviour
         var tempZomby = obj.gameObject;
         zombiClons.Remove(obj);
         Destroy(tempZomby);
-        
     }
 
     private void ZombiRemove(ZombieBase obj)
     {
         obj.IDead -= ZombiIsDead;
+        obj.IGoal -= ZombiGoal;
         zombiClons.Remove(obj);
         Destroy(obj.gameObject);
     }

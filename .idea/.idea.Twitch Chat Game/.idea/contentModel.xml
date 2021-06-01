@@ -64,6 +64,7 @@
           </e>
         </e>
         <e p="TargetAim.cs" t="Include" />
+        <e p="UIController.cs" t="Include" />
         <e p="Zona.cs" t="Include" />
         <e p="ZoneDestroy.cs" t="Include" />
       </e>

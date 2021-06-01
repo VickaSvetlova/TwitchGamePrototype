@@ -1,35 +1,30 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CityManager : MonoBehaviour
 {
-    public Action<float, float> PopulationChange;
-    [SerializeField] private float populationMax;
-    private float populationCurrent;
+    public Action<int, int> PopulationChange;
+    [SerializeField] private int populationMax;
+    private int populationCurrent;
     [SerializeField] private float cooldownEvacuationTransport;
     [SerializeField] private UIController uiController;
 
     private void Awake()
     {
+        populationCurrent = populationMax;
         uiController.SubscribeManager(this);
-    }
-}
-
-public class UIController : MonoBehaviour
-{
-    [SerializeField] private Slider slider;
-
-    public void SetPopulation(float populationMax, float populationCurrent)
-    {
-        slider.maxValue = populationMax;
-        slider.value = populationCurrent;
+        PopulationChange?.Invoke(populationMax,populationCurrent);
     }
 
-    public void SubscribeManager(CityManager cityManager)
+    public void CityDamage(int killPiople)
     {
-        cityManager.PopulationChange += SetPopulation;
+        populationCurrent -= killPiople;
+        PopulationChange?.Invoke(populationMax,populationCurrent);
+        if (populationCurrent <= 0)
+        {
+            //city destroy
+            return;
+        }
+        
     }
 }
