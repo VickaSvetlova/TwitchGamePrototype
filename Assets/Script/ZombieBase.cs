@@ -14,6 +14,7 @@ namespace Script
             dead
         }
 
+        public UIName UIName;
         public string Name;
         public Action<ZombieBase> IDead;
         public Action<ZombieBase> IGoal;
@@ -23,7 +24,7 @@ namespace Script
         public float health;
         public float timeToDestroy;
         public int hunger;
-        
+
         private GameObject _targetMarcker;
 
         private IEnumerator coldownTimerStanEffect;
@@ -111,6 +112,11 @@ namespace Script
         public void DestroyOnColision(GameObject gameObject)
         {
             Destroy(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            Destroy(UIName.gameObject);
         }
     }
 }

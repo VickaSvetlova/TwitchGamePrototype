@@ -836,6 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef611e7b9578b04b947f0a50a2c4d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _uiController: {fileID: 1375963849}
   moveTarget: {fileID: 446774764}
   zombiPrefab: {fileID: 5314726485191055838, guid: 2950486d663f0314a876130e5b7f70c7, type: 3}
   posSpawnZombi:
@@ -849,6 +850,7 @@ MonoBehaviour:
   - {fileID: 810951385}
   timeSpawnZombi: 2
   waveCont: 0300000006000000
+  UINamePrefab: {fileID: 2824236974611551330, guid: 81cffdce258a99d4cb7bc61e48da7c6f, type: 3}
   nameZombi:
   - Joe
   - Martin
@@ -1221,8 +1223,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f42928b223f454f8416587e5f08482c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvas: {fileID: 1375963847}
   slider: {fileID: 2089545980}
   populationCount: {fileID: 334433420}
+  UINamePrefab: {fileID: 2824236974611551330, guid: 81cffdce258a99d4cb7bc61e48da7c6f, type: 3}
 --- !u!1 &1417355515
 GameObject:
   m_ObjectHideFlags: 0

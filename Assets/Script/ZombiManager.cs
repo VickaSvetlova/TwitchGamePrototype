@@ -8,12 +8,13 @@ using Random = UnityEngine.Random;
 
 public class ZombiManager : MonoBehaviour
 {
+    [SerializeField] private UIController _uiController;
     [SerializeField] private Transform moveTarget;
     [SerializeField] private GameObject zombiPrefab;
     [SerializeField] private Transform[] posSpawnZombi;
     [SerializeField] private float timeSpawnZombi;
     [SerializeField] private int[] waveCont = new[] {3, 6, 9, 12, 15};
-
+    [SerializeField] private GameObject UINamePrefab;
     [SerializeField] private string[] nameZombi;
 
     [SerializeField] private CityManager cityManager;
@@ -102,13 +103,17 @@ public class ZombiManager : MonoBehaviour
 
     private void ZombiConstructor(ZombieBase zombieBase)
     {
-        zombieBase.Name = TakeRandomName(); //TakeRandomName();
+        var tempName = TakeRandomName(); //TakeRandomName();
+        zombieBase.Name = tempName;
         zombieBase.health = 5;
         zombieBase.targetMove = moveTarget.position;
-        zombieBase.walkSpeed = 5f;
+        zombieBase.walkSpeed = 1f;
         zombieBase.IDead += ZombiIsDead;
         zombieBase.IGoal += ZombiGoal;
         zombieBase.hunger = Random.Range(1, 5);
+        ///
+        _uiController.CreateUIName(tempName,zombieBase);
+       
     }
 
     private string TakeRandomName()

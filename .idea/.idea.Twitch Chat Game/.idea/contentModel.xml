@@ -55,6 +55,7 @@
           <e p="Survivor.cs" t="Include" />
           <e p="TestControlCharacter.cs" t="Include" />
           <e p="TwitchChat.cs" t="Include" />
+          <e p="UIName.cs" t="Include" />
           <e p="ZombieBase.cs" t="Include" />
           <e p="ZombiManager.cs" t="Include" />
         </e>
