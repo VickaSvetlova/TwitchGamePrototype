@@ -26,10 +26,16 @@ public class GameManager : MonoBehaviour
 
     private GameState _previusState;
 
+    public ZombieController Controller
+    {
+        get => zombieController;
+        set => zombieController = value;
+    }
+
     private void Awake()
     {
         _previusState = GameState.gameOver;
-        SetState(_previusState);
+        SetState(GameState.idle);
         chatController.Manager = this;
     }
 
@@ -50,7 +56,7 @@ public class GameManager : MonoBehaviour
                 {
                     _previusState = GameState.game;
                     chatController.ONChatEnable = true;
-                    zombieController.StateManager(true);
+                    Controller.StateManager(true);
                 }
 
                 break;
@@ -58,7 +64,7 @@ public class GameManager : MonoBehaviour
                 if (_previusState == GameState.game)
                 {
                     chatController.ONChatEnable = false;
-                    zombieController.StateManager(false);
+                    Controller.StateManager(false);
                     StartCooldownNextWave();
                 }
 
@@ -68,7 +74,7 @@ public class GameManager : MonoBehaviour
                 {
                     _previusState = GameState.gameOver;
                     chatController.ONChatEnable = false;
-                    zombieController.StateManager(false);
+                    Controller.StateManager(false);
                 }
 
                 break;

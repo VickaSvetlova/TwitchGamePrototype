@@ -839,7 +839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiController: {fileID: 1375963849}
   moveTarget: {fileID: 446774764}
-  zombiPrefab: {fileID: 5314726485191055838, guid: 2950486d663f0314a876130e5b7f70c7, type: 3}
+  zombiePrefab: {fileID: 5314726485191055838, guid: 2950486d663f0314a876130e5b7f70c7, type: 3}
   posSpawnZombi:
   - {fileID: 1169710273}
   - {fileID: 1458205978}
@@ -851,7 +851,6 @@ MonoBehaviour:
   - {fileID: 810951385}
   timeSpawnZombi: 2
   waveCont: 0300000006000000
-  UINamePrefab: {fileID: 2824236974611551330, guid: 81cffdce258a99d4cb7bc61e48da7c6f, type: 3}
   nameZombi:
   - Joe
   - Martin
@@ -862,7 +861,6 @@ MonoBehaviour:
   - Lonselot
   - Borat
   cityController: {fileID: 0}
-  ManagerState: 1
   countZombiInWave: 0
   timerNextWave: 10
 --- !u!4 &950731888
@@ -1168,6 +1166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1293927349}
+  - component: {fileID: 1293927350}
   m_Layer: 0
   m_Name: ---GameManager---
   m_TagString: Untagged
@@ -1189,6 +1188,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1293927350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293927348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b07fbc17d71cc143ba9a9a0d7b3325b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieController: {fileID: 950731887}
+  cityController: {fileID: 622095842}
+  uiController: {fileID: 1375963849}
+  chatController: {fileID: 1657026536}
+  coolDawnNextWaveTime: 2
 --- !u!1 &1351837635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,12 +1676,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56d134b6f5ec894a8d2e7afc4ad2ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombiController: {fileID: 0}
   chatBox: {fileID: 1417355517}
   prefabPlayer: {fileID: 1740725553665067859, guid: 134444cae9567c648beb16a101cad539, type: 3}
-  speed: 0
   startPos: {fileID: 1699511189}
-  playerScore: {fileID: 0}
   maxPlayerOn: 10
   waitToReconnected: 300
 --- !u!4 &1657026537

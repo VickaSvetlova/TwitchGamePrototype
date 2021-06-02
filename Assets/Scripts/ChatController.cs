@@ -16,7 +16,6 @@ public class ChatController : MonoBehaviour
 
     #endregion
 
-    [SerializeField] private ZombieController zombieController;
     [SerializeField] Text chatBox;
     [SerializeField] private GameObject prefabPlayer;
     [SerializeField] private Transform startPos;
@@ -176,6 +175,6 @@ public class ChatController : MonoBehaviour
 
     public ZombieBase ChekNameZombie(string commanda)
     {
-        return zombieController.CheckZombiName(commanda);
+        return _gameManager.Controller.CheckZombiName(commanda);
     }
 }

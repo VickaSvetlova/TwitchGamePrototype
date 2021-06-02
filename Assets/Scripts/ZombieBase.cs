@@ -116,7 +116,7 @@ namespace Script
 
         private void OnDestroy()
         {
-            Destroy(UIName.gameObject);
+            if (UIName is { }) Destroy(UIName.gameObject);
         }
     }
 }
