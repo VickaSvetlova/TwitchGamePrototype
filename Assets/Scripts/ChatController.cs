@@ -10,40 +10,44 @@ using Random = UnityEngine.Random;
 
 public class ChatController : MonoBehaviour
 {
-    private TcpClient _twitchClient;
-    private StreamReader _reader;
-    private StreamWriter _writer;
-
     #region AUTH
 
     string username = "Tory_Shepard", password = "oauth:c9nuxgq3lain6rt0z1uzrq53q4cb30", channelName = "tory_shepard";
 
     #endregion
 
-
-    [SerializeField] private ZombiManager zombiManager;
+    [SerializeField] private ZombieController zombieController;
     [SerializeField] Text chatBox;
     [SerializeField] private GameObject prefabPlayer;
-    [SerializeField] private float speed;
-    private Dictionary<string, User> _users = new Dictionary<string, User>();
     [SerializeField] private Transform startPos;
-    [SerializeField] private PlayerScore playerScore;
     [SerializeField] private int maxPlayerOn;
-    private IEnumerator reconected;
-    private bool _isManagerZombiStart;
     [SerializeField] private float waitToReconnected;
+
+    private bool onChatEnable;
+    private IEnumerator reconected;
+    private Dictionary<string, User> _users = new Dictionary<string, User>();
+    private TcpClient _twitchClient;
+    private StreamReader _reader;
+    private StreamWriter _writer;
+    private GameManager _gameManager;
+
+    public GameManager Manager
+    {
+        set => _gameManager = value;
+    }
+
+
+    public bool ONChatEnable
+    {
+        get => onChatEnable;
+        set => onChatEnable = value;
+    }
 
     private void Start()
     {
         Connect();
         reconected = ReConnected();
         StartCoroutine(reconected);
-    }
-
-    private void PlayerGetCoint(int coin, Character character)
-    {
-        character.coin += coin;
-        playerScore.SetTableScore(_users);
     }
 
     private IEnumerator ReConnected()
@@ -57,6 +61,7 @@ public class ChatController : MonoBehaviour
 
     private void Update()
     {
+        if (!ONChatEnable) return;
         if (_twitchClient != null && !_twitchClient.Connected)
         {
             Connect();
@@ -89,7 +94,7 @@ public class ChatController : MonoBehaviour
         if (_twitchClient != null && _twitchClient.Available > 0)
         {
             var message = _reader.ReadLine(); //прочитать сообщение
-         //   print(message);
+            //   print(message);
             if (message.Contains("PRIVMSG"))
             {
                 //взять имя полльзователя и разбить на строку
@@ -120,10 +125,9 @@ public class ChatController : MonoBehaviour
                             _users.Add(chatName, user);
 
                             // playerScore.SetTableScore(_users);
-                            if (_users.Count > 0 && !_isManagerZombiStart)
+                            if (_users.Count > 0)
                             {
-                                zombiManager.StateManager(true);
-                                _isManagerZombiStart = true;
+                                _gameManager.SetState(GameState.game);
                             }
                         }
                     }
@@ -133,30 +137,10 @@ public class ChatController : MonoBehaviour
                     GameInputs(message, _users[chatName]);
                 }
 
-
                 chatBox.text = chatBox.text + "\n" + String.Format("{0}: {1}", chatName, message);
                 //управление в игре
             }
         }
-    }
-
-
-    private void IsDeatchPlayer(GameObject player)
-    {
-        var temp = player.GetComponent<Character>();
-        temp.coin -= 1;
-        if (temp.coin <= 0)
-        {
-            _users.Remove(temp.user.name);
-            temp.imDeath -= IsDeatchPlayer;
-            Destroy(player);
-        }
-        else
-        {
-            SetPositionPlayer(player);
-        }
-
-        playerScore.SetTableScore(_users);
     }
 
     private void SetPositionPlayer(GameObject player)
@@ -192,6 +176,6 @@ public class ChatController : MonoBehaviour
 
     public ZombieBase ChekNameZombie(string commanda)
     {
-        return zombiManager.CheckZombiName(commanda);
+        return zombieController.CheckZombiName(commanda);
     }
 }

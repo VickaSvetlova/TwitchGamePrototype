@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    [SerializeField] private GameObject screenGameOver;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Slider slider;
     [SerializeField] private Text populationCount;
@@ -16,9 +17,9 @@ public class UIController : MonoBehaviour
         populationCount.text = populationCurrent.ToString();
     }
 
-    public void SubscribeManager(CityManager cityManager)
+    public void SubscribeManager(CityController cityController)
     {
-        cityManager.PopulationChange += SetPopulation;
+        cityController.PopulationChange += SetPopulation;
     }
 
     public void CreateUIName(string tempName, ZombieBase zombieBase)

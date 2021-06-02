@@ -8,7 +8,7 @@
       <e p="Assets" t="Include">
         <e p="AiAgent.cs" t="Include" />
         <e p="AIController.cs" t="Include" />
-        <e p="CityManager.cs" t="Include" />
+        <e p="CityController.cs" t="Include" />
         <e p="Five Seamless Tileable Ground Textures" t="Include">
           <e p="read me.txt" t="Include" />
         </e>
@@ -37,7 +37,7 @@
             <e p="Polygon_UVScroll.shader" t="Include" />
           </e>
         </e>
-        <e p="Script" t="Include">
+        <e p="Scripts" t="Include">
           <e p="BaseBullet.cs" t="Include" />
           <e p="BaseWeapon.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
@@ -45,6 +45,7 @@
           <e p="ChatController.cs" t="Include" />
           <e p="Coin.cs" t="Include" />
           <e p="EnemySpawner.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
           <e p="ICommand.cs" t="Include" />
           <e p="IDestroyer.cs" t="Include" />
           <e p="ITakeDamage.cs" t="Include" />
@@ -57,7 +58,7 @@
           <e p="TwitchChat.cs" t="Include" />
           <e p="UIName.cs" t="Include" />
           <e p="ZombieBase.cs" t="Include" />
-          <e p="ZombiManager.cs" t="Include" />
+          <e p="ZombieController.cs" t="Include" />
         </e>
         <e p="SimpleFX" t="Include">
           <e p="Materials" t="Include">
