@@ -40,8 +40,9 @@ public class BaseWeapon
     private void Fire()
     {
         if (owner.TargetAim == null) return;
-        
+
         var tempBullet = new GameObject();
+        LayerMask.NameToLayer("bullet");
         tempBullet.AddComponent<BaseBullet>();
         tempBullet.AddComponent<SphereCollider>().radius = 0.1f;
 

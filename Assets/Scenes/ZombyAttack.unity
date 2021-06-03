@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 217086211}
   - component: {fileID: 217086210}
   - component: {fileID: 217086209}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 242900468}
   - component: {fileID: 242900467}
   - component: {fileID: 242900466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 420870703}
   - component: {fileID: 420870702}
   - component: {fileID: 420870701}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -961,7 +961,7 @@ GameObject:
   - component: {fileID: 730504991}
   - component: {fileID: 730504990}
   - component: {fileID: 730504989}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1145,7 +1145,7 @@ MonoBehaviour:
   - {fileID: 1222632756}
   - {fileID: 810951385}
   timeSpawnZombi: 2
-  waveCont: 0300000006000000
+  waveCont: 03000000060000000f000000230000003c000000
   nameZombi:
   - Joe
   - Martin

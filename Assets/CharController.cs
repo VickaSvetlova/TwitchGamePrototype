@@ -37,7 +37,8 @@ public class CharController : MonoBehaviour
             _positionSpawn.RemoveAt(randomPosition);
             return thisPosition;
         }
-        else
+
+        if (_positionSpawn.Count <= 0)
         {
             ResetPositionArray();
             GetRandomSpawn();

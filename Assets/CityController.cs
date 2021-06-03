@@ -9,7 +9,7 @@ public class CityController : MonoBehaviour
     public Action<int, int> PopulationChange;
     public Action EvacuationComplite;
     [SerializeField] private int populationMax;
-    [SerializeField] [Min(0)] private Vector2 maxMinEvacuationPiople;
+    [SerializeField] private Vector2 maxMinEvacuationPiople;
 
     [SerializeField] private float cooldownEvacuationTransport;
     [SerializeField] private UIController uiController;

@@ -115,7 +115,7 @@ public class ZombieController : MonoBehaviour
         zombieBase.Name = tempName;
         zombieBase.health = 5;
         zombieBase.targetMove = moveTarget.position;
-        zombieBase.walkSpeed = 1f;
+        zombieBase.walkSpeed = 5f;
         zombieBase.IDead += ZombiIsDead;
         zombieBase.IGoal += ZombiGoal;
         zombieBase.hunger = Random.Range(1, 5);
@@ -133,7 +133,7 @@ public class ZombieController : MonoBehaviour
         }
 
         _nameZombi.AddRange(nameZombi);
-        return null;
+        return TakeRandomName();
     }
 
     private void ZombiGoal(ZombieBase obj)
