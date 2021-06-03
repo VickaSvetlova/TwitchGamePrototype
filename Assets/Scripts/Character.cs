@@ -7,7 +7,7 @@ public class Character : MonoBehaviour
 {
     public Action<GameObject> imDeath;
     public Action<GameObject> imLoseCoin;
-    public ChatController.User user;
+    public User user;
     public int coin = 1;
     private bool timeGetCoin;
     private bool onDamageble;

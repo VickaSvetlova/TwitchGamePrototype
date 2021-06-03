@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="AiAgent.cs" t="Include" />
         <e p="AIController.cs" t="Include" />
+        <e p="CharController.cs" t="Include" />
         <e p="CityController.cs" t="Include" />
         <e p="Five Seamless Tileable Ground Textures" t="Include">
           <e p="read me.txt" t="Include" />
@@ -57,6 +58,7 @@
           <e p="TestControlCharacter.cs" t="Include" />
           <e p="TwitchChat.cs" t="Include" />
           <e p="UIName.cs" t="Include" />
+          <e p="User.cs" t="Include" />
           <e p="ZombieBase.cs" t="Include" />
           <e p="ZombieController.cs" t="Include" />
         </e>

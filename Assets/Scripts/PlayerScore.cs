@@ -7,9 +7,9 @@ public class PlayerScore : MonoBehaviour
 {
     [SerializeField] private GameObject tableScore;
     [SerializeField] private GameObject playerTableScore;
-    public List<KeyValuePair<string, ChatController.User>> sorted=new List<KeyValuePair<string, ChatController.User>>();
+    public List<KeyValuePair<string, User>> sorted=new List<KeyValuePair<string, User>>();
 
-    public void SetTableScore(Dictionary<string, ChatController.User> players)
+    public void SetTableScore(Dictionary<string, User> players)
     {
 
         sorted = players.ToList();

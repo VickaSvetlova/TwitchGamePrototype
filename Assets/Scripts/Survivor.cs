@@ -10,7 +10,7 @@ public class Survivor : MonoBehaviour
     [SerializeField] private float lookRadius;
     private BaseWeapon _weapon;
     public GameObject TargetAim { get; set; }
-    public ChatController.User user { private get; set; }
+    public User user { private get; set; }
 
     private List<CommandFactory> CommandFactories = new List<CommandFactory>();
 
@@ -25,8 +25,7 @@ public class Survivor : MonoBehaviour
     private ICommand CurrentSurvivorCommand;
     private ICommand CurrentWeaponCommand;
     [SerializeField] public Transform _gunpoint;
-    
-    
+
 
     public BaseWeapon Weapon
     {
@@ -86,7 +85,7 @@ public class Survivor : MonoBehaviour
 
     public void TakeCommand(string command)
     {
-        var tempZombi = user.ChatController.ChekNameZombie(command);
+        var tempZombi = user.ZombieController.CheckZombiName(command);
         if (tempZombi)
         {
             if (lastZomby != null) lastZomby.LookAtMy(false);

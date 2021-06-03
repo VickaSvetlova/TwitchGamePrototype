@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class ChatController : MonoBehaviour
+public partial class ChatController : MonoBehaviour
 {
     #region AUTH
 
@@ -112,18 +112,9 @@ public class ChatController : MonoBehaviour
                     {
                         if (message.ToLower() == "start")
                         {
-                            var player = Instantiate(prefabPlayer);
-                            SetPositionPlayer(player);
-
-                            var temp = player.GetComponent<Survivor>();
-                            var color = GetColor();
-                            var user = new User(chatName, temp, color, gameObject.GetComponent<ChatController>());
-
-                            player.GetComponent<Renderer>().material.color = color;
-                            temp.user = user;
+                            var user = _gameManager.CharController.CreateCharacter(chatName);
                             _users.Add(chatName, user);
 
-                            // playerScore.SetTableScore(_users);
                             if (_users.Count > 0)
                             {
                                 _gameManager.SetState(GameState.game);
@@ -142,39 +133,9 @@ public class ChatController : MonoBehaviour
         }
     }
 
-    private void SetPositionPlayer(GameObject player)
-    {
-        player.transform.position = startPos.position;
-    }
-
     public void GameInputs(string chatInputs, User user)
     {
         user.Character.TakeCommand(chatInputs.ToLower());
     }
-
-    public class User
-    {
-        public string name;
-        public Survivor Character;
-        public Color color;
-        public ChatController ChatController;
-
-        public User(string name, Survivor character, Color color, ChatController chatController)
-        {
-            this.name = name;
-            this.color = color;
-            this.Character = character;
-            this.ChatController = chatController;
-        }
-    }
-
-    private Color GetColor()
-    {
-        return Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-    }
-
-    public ZombieBase ChekNameZombie(string commanda)
-    {
-        return _gameManager.Controller.CheckZombiName(commanda);
-    }
+    
 }
