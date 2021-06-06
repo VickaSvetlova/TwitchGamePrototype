@@ -8,13 +8,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public partial class ChatController : MonoBehaviour
+public class ChatController : MonoBehaviour
 {
     #region AUTH
 
     string username = "Tory_Shepard", password = "oauth:c9nuxgq3lain6rt0z1uzrq53q4cb30", channelName = "tory_shepard";
 
     #endregion
+
+    public event Action OnUserAppeared;
+    public CharController CharController { private get; set; }
 
     [SerializeField] Text chatBox;
     [SerializeField] private GameObject prefabPlayer;
@@ -28,13 +31,6 @@ public partial class ChatController : MonoBehaviour
     private TcpClient _twitchClient;
     private StreamReader _reader;
     private StreamWriter _writer;
-    private GameManager _gameManager;
-
-    public GameManager Manager
-    {
-        set => _gameManager = value;
-    }
-
 
     public bool ONChatEnable
     {
@@ -112,12 +108,12 @@ public partial class ChatController : MonoBehaviour
                     {
                         if (message.ToLower() == "start")
                         {
-                            var user = _gameManager.CharController.CreateCharacter(chatName);
+                            var user = CharController.CreateCharacter(chatName);
                             _users.Add(chatName, user);
 
                             if (_users.Count > 0)
                             {
-                                _gameManager.SetState(GameState.game);
+                                OnUserAppeared?.Invoke();
                             }
                         }
                     }
@@ -137,5 +133,4 @@ public partial class ChatController : MonoBehaviour
     {
         user.Character.TakeCommand(chatInputs.ToLower());
     }
-    
 }

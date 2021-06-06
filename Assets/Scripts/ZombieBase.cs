@@ -109,7 +109,7 @@ namespace Script
             }
         }
 
-        public void DestroyOnColision(GameObject gameObject)
+        public void DestroyOnCollision(GameObject gameObject)
         {
             Destroy(gameObject);
         }

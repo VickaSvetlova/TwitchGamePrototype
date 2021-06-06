@@ -2,5 +2,5 @@
 
 public interface IDestroyer
 {
-    void DestroyOnColision(GameObject gameObject);
+    void DestroyOnCollision(GameObject gameObject);
 }

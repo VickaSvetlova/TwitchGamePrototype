@@ -904,7 +904,6 @@ MonoBehaviour:
   populationMax: 100
   maxMinEvacuationPiople: {x: 2, y: 10}
   cooldownEvacuationTransport: 60
-  uiController: {fileID: 1375963849}
 --- !u!4 &622095843
 Transform:
   m_ObjectHideFlags: 0
@@ -1156,8 +1155,6 @@ MonoBehaviour:
   - Lonselot
   - Borat
   timerNextWave: 10
-  cityController: {fileID: 0}
-  countZombiInWave: 0
 --- !u!4 &950731888
 Transform:
   m_ObjectHideFlags: 0
@@ -1525,7 +1522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b07fbc17d71cc143ba9a9a0d7b3325b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieZombieController: {fileID: 950731887}
+  zombieController: {fileID: 950731887}
   cityController: {fileID: 622095842}
   uiController: {fileID: 1375963849}
   chatController: {fileID: 1657026536}

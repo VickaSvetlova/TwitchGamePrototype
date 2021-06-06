@@ -1,4 +1,5 @@
-﻿using Script;
+﻿using System;
+using Script;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,12 +18,7 @@ public class UIController : MonoBehaviour
         populationCount.text = populationCurrent.ToString();
     }
 
-    public void SubscribeManager(CityController cityController)
-    {
-        cityController.PopulationChange += SetPopulation;
-    }
-
-    public void CreateUIName(string tempName, ZombieBase zombieBase)
+    public void CreateUIName(ZombieBase zombieBase)
     {
         var tempNamePrefab = Instantiate(UINamePrefab);
 
@@ -31,6 +27,6 @@ public class UIController : MonoBehaviour
         var temp = tempNamePrefab.GetComponent<UIName>();
         zombieBase.UIName = temp;
         temp.TransformFolowObject = zombieBase.transform;
-        temp.Name = tempName;
+        temp.Name = zombieBase.Name;
     }
 }

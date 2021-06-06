@@ -1,18 +1,17 @@
 using System;
 using System.Collections;
+using Script;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 
 public class CityController : MonoBehaviour
 {
-    public Action<int, int> PopulationChange;
-    public Action EvacuationComplite;
+    public event Action<int, int> PopulationChange;
+    public event Action EvacuationComplite;
     [SerializeField] private int populationMax;
     [SerializeField] private Vector2 maxMinEvacuationPiople;
-
     [SerializeField] private float cooldownEvacuationTransport;
-    [SerializeField] private UIController uiController;
 
     private int populationCurrent;
     private IEnumerator coolDownEvacuation;
@@ -26,13 +25,16 @@ public class CityController : MonoBehaviour
     private void Awake()
     {
         populationCurrent = populationMax;
-        uiController.SubscribeManager(this);
+    }
+
+    private void Start()
+    {
         PopulationChange?.Invoke(populationMax, populationCurrent);
     }
 
-    public void CityDamage(int killPiople)
+    public void CityDamage(ZombieBase zombie)
     {
-        populationCurrent -= killPiople;
+        populationCurrent -= zombie.hunger;
         PopulationChange?.Invoke(populationMax, populationCurrent);
         if (populationCurrent <= 0)
         {

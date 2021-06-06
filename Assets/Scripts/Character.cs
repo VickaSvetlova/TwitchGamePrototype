@@ -56,6 +56,6 @@ public class Character : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.1f);
-        renderer.material.color = user != null ? user.color : Color.gray;
+        renderer.material.color = user != null ? user.Color : Color.gray;
     }
 }

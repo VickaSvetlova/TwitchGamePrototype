@@ -85,7 +85,7 @@ public class Survivor : MonoBehaviour
 
     public void TakeCommand(string command)
     {
-        var tempZombi = user.ZombieController.CheckZombiName(command);
+        var tempZombi = user.ZombieProvider.FindZombieByName(command);
         if (tempZombi)
         {
             if (lastZomby != null) lastZomby.LookAtMy(false);

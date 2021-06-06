@@ -2,16 +2,16 @@
 
 public class User
 {
-    public string name;
-    public Survivor Character;
-    public Color color;
-    public ZombieController ZombieController;
+    public string Name { get; }
+    public Survivor Character { get; }
+    public Color Color { get; }
+    public IZombieProvider ZombieProvider { get; }
 
-    public User(string name, Survivor character, Color color, ZombieController zombieController)
+    public User(string name, Survivor character, Color color, IZombieProvider zombieProvider)
     {
-        this.name = name;
-        this.color = color;
-        this.Character = character;
-        this.ZombieController = zombieController;
+        Name = name;
+        Color = color;
+        Character = character;
+        ZombieProvider = zombieProvider;
     }
 }

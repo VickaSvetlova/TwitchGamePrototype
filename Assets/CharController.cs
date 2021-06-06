@@ -9,7 +9,7 @@ public class CharController : MonoBehaviour
     [SerializeField] private GameObject prefabPlayer;
     [SerializeField] private Transform[] PositionSpawn;
     private List<Transform> _positionSpawn = new List<Transform>();
-    public GameManager Manager { get; set; }
+    public IZombieProvider ZombieProvider { get; set; }
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class CharController : MonoBehaviour
         player.transform.position = GetRandomSpawn();
         var temp = player.GetComponent<Survivor>();
         var color = GetRandomColor();
-        var user = new User(chatName, temp, color, Manager.ZombieController);
+        var user = new User(chatName, temp, color, ZombieProvider);
         temp.user = user;
         player.GetComponent<Renderer>().material.color = color;
         return user;

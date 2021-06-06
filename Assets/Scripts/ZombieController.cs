@@ -1,13 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Script;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class ZombieController : MonoBehaviour
+public class ZombieController : MonoBehaviour, IZombieProvider
 {
+    public event Action<ZombieBase> OnZombieCreated;
+    public event Action<ZombieBase> OnZombieReachedCity;
+
     [SerializeField] private Transform moveTarget;
     [SerializeField] private GameObject zombiePrefab;
     [SerializeField] private Transform[] posSpawnZombi;
@@ -15,7 +17,7 @@ public class ZombieController : MonoBehaviour
     [SerializeField] private int[] waveCont = new[] {3, 6, 9, 12, 15};
     [SerializeField] private string[] nameZombi;
     [SerializeField] private float timerNextWave;
-    [SerializeField] private CityController cityController;
+
     private List<string> _nameZombi = new List<string>();
 
     private List<Transform> posRandom = new List<Transform>();
@@ -23,21 +25,10 @@ public class ZombieController : MonoBehaviour
 
     private bool ManagerState;
 
-    [HideInInspector] public int countZombiInWave;
-
     List<ZombieBase> zombiClons = new List<ZombieBase>();
 
     private IEnumerator timerSpawnZombie;
     private IEnumerator cooldownNextWave;
-
-    private GameManager _manager;
-
-    public GameManager Manager
-    {
-        get => _manager;
-        set => _manager = value;
-    }
-
 
     private void Start()
     {
@@ -88,8 +79,7 @@ public class ZombieController : MonoBehaviour
         var clon = clonZomby.AddComponent<ZombieBase>();
         clonZomby.AddComponent<CapsuleCollider>();
         zombiClons.Add(clon);
-        countZombiInWave -= 1;
-        ZombiConstructor(clon);
+        OnZombieCreated?.Invoke(SetUpZombie(clon));
         SetRandomSpawnPosition(clonZomby);
     }
 
@@ -109,7 +99,7 @@ public class ZombieController : MonoBehaviour
         posRandom.AddRange(posSpawnZombi);
     }
 
-    private void ZombiConstructor(ZombieBase zombieBase)
+    private ZombieBase SetUpZombie(ZombieBase zombieBase)
     {
         var tempName = TakeRandomName(); //TakeRandomName();
         zombieBase.Name = tempName;
@@ -119,7 +109,7 @@ public class ZombieController : MonoBehaviour
         zombieBase.IDead += ZombiIsDead;
         zombieBase.IGoal += ZombiGoal;
         zombieBase.hunger = Random.Range(1, 5);
-        _manager.UIController.CreateUIName(tempName, zombieBase);
+        return zombieBase;
     }
 
     private string TakeRandomName()
@@ -136,11 +126,11 @@ public class ZombieController : MonoBehaviour
         return TakeRandomName();
     }
 
-    private void ZombiGoal(ZombieBase obj)
+    private void ZombiGoal(ZombieBase zombie)
     {
         //zombi is it my hosbrand
-        _manager.CityController.CityDamage(obj.hunger);
-        ZombiRemove(obj);
+        OnZombieReachedCity?.Invoke(zombie);
+        ZombieRemove(zombie);
     }
 
     private void ZombiIsDead(ZombieBase obj)
@@ -150,7 +140,7 @@ public class ZombieController : MonoBehaviour
         Destroy(tempZomby);
     }
 
-    private void ZombiRemove(ZombieBase obj)
+    private void ZombieRemove(ZombieBase obj)
     {
         obj.IDead -= ZombiIsDead;
         obj.IGoal -= ZombiGoal;
@@ -169,7 +159,9 @@ public class ZombieController : MonoBehaviour
         }
     }
 
-    public ZombieBase CheckZombiName(string name)
+    #region IZombieProvider
+
+    public ZombieBase FindZombieByName(string name)
     {
         foreach (var zombi in zombiClons)
         {
@@ -181,4 +173,6 @@ public class ZombieController : MonoBehaviour
 
         return null;
     }
+
+    #endregion
 }
