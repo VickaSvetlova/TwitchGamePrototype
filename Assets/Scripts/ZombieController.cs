@@ -36,6 +36,17 @@ public class ZombieController : MonoBehaviour, IZombieProvider
         ResetRandom();
     }
 
+    private void Reset()
+    {
+        foreach (var zombie in zombiClons)
+        {
+            zombie.Kill();
+        }
+
+        zombiClons.Clear();
+        ResetRandom();
+    }
+
     public void StateManager(bool state)
     {
         timerSpawnZombie = CooldownSpawnZombi();
@@ -108,7 +119,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
         zombieBase.walkSpeed = 5f;
         zombieBase.IDead += ZombiIsDead;
         zombieBase.IGoal += ZombiGoal;
-        zombieBase.hunger = Random.Range(1, 5);
+        zombieBase.hunger = Random.Range(10, 50);
         return zombieBase;
     }
 

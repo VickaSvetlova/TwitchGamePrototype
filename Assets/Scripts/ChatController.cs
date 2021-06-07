@@ -38,6 +38,17 @@ public class ChatController : MonoBehaviour
         set => onChatEnable = value;
     }
 
+    public void Reset()
+    {
+        if (_users.Keys.Count <= 0) return;
+        foreach (var user in _users)
+        {
+            user.Value.Character.Kill();
+        }
+
+        _users.Clear();
+    }
+
     private void Start()
     {
         Connect();

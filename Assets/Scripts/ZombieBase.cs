@@ -118,5 +118,10 @@ namespace Script
         {
             if (UIName != null) Destroy(UIName.gameObject);
         }
+
+        public void Kill()
+        {
+            Destroy(gameObject);
+        }
     }
 }

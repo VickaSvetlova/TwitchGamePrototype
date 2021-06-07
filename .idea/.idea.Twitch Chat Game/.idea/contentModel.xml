@@ -49,6 +49,7 @@
           <e p="GameManager.cs" t="Include" />
           <e p="ICommand.cs" t="Include" />
           <e p="IDestroyer.cs" t="Include" />
+          <e p="IReset.cs" t="Include" />
           <e p="ITakeDamage.cs" t="Include" />
           <e p="IZombieProvider.cs" t="Include" />
           <e p="PlayerCardScore.cs" t="Include" />

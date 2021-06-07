@@ -9,11 +9,18 @@ public class CharController : MonoBehaviour
     [SerializeField] private GameObject prefabPlayer;
     [SerializeField] private Transform[] PositionSpawn;
     private List<Transform> _positionSpawn = new List<Transform>();
+    private List<GameObject> chars = new List<GameObject>();
     public IZombieProvider ZombieProvider { get; set; }
 
-    private void Awake()
+    public void Awake()
     {
         ResetPositionArray();
+       
+    }
+
+    private void Reset()
+    {
+        
     }
 
     public User CreateCharacter(string chatName)
@@ -25,6 +32,7 @@ public class CharController : MonoBehaviour
         var user = new User(chatName, temp, color, ZombieProvider);
         temp.user = user;
         player.GetComponent<Renderer>().material.color = color;
+        chars.Add(player);
         return user;
     }
 

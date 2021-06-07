@@ -29,4 +29,9 @@ public class UIController : MonoBehaviour
         temp.TransformFolowObject = zombieBase.transform;
         temp.Name = zombieBase.Name;
     }
+
+    public void GameOver(bool state)
+    {
+        screenGameOver.SetActive(state);
+    }
 }

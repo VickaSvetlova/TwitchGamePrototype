@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Script;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using Random = UnityEngine.Random;
 
 
@@ -12,9 +13,9 @@ public class CityController : MonoBehaviour
     [SerializeField] private int populationMax;
     [SerializeField] private Vector2 maxMinEvacuationPiople;
     [SerializeField] private float cooldownEvacuationTransport;
-
     private int populationCurrent;
     private IEnumerator coolDownEvacuation;
+
 
     public float CooldownEvacuationTransport
     {
@@ -22,13 +23,14 @@ public class CityController : MonoBehaviour
         set => cooldownEvacuationTransport = value;
     }
 
-    private void Awake()
-    {
-        populationCurrent = populationMax;
-    }
-
     private void Start()
     {
+        Reset();
+    }
+
+    public void Reset()
+    {
+        populationCurrent = populationMax;
         PopulationChange?.Invoke(populationMax, populationCurrent);
     }
 
@@ -38,8 +40,7 @@ public class CityController : MonoBehaviour
         PopulationChange?.Invoke(populationMax, populationCurrent);
         if (populationCurrent <= 0)
         {
-            //city destroy
-            return;
+            EvacuationComplite?.Invoke();
         }
     }
 

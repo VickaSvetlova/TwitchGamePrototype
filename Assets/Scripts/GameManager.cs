@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 
 public enum GameState
@@ -22,10 +23,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float coolDawnNextWaveTime;
 
-    private IEnumerator coolDownNextWave;
+    private IEnumerator coolDown;
 
 
     private GameState _previusState;
+    [SerializeField] private float nextGameTimer;
+    [SerializeField] private float nextWaveTimer;
 
 
     private void Awake()
@@ -36,7 +39,6 @@ public class GameManager : MonoBehaviour
         chatController.CharController = charController;
         charController.ZombieProvider = zombieController;
 
-
         SubscribesControllers();
     }
 
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
         zombieController.OnZombieReachedCity += (zombie) => { cityController.CityDamage(zombie); };
         chatController.OnUserAppeared += () => { SetState(GameState.game); };
         cityController.PopulationChange += (max, curr) => { uiController.SetPopulation(max, curr); };
+        cityController.EvacuationComplite += () => { SetState(GameState.gameOver); };
     }
 
     public void SetState(GameState _state)
@@ -55,8 +58,11 @@ public class GameManager : MonoBehaviour
             case GameState.idle:
                 if (_previusState == GameState.gameOver)
                 {
+                    Reset();
                     _previusState = GameState.idle;
                     chatController.ONChatEnable = true;
+                    zombieController.StateManager(false);
+                    uiController.GameOver(false);
                 }
 
                 break;
@@ -74,7 +80,7 @@ public class GameManager : MonoBehaviour
                 {
                     chatController.ONChatEnable = false;
                     zombieController.StateManager(false);
-                    StartCooldownNextWave();
+                    StartCooldown(nextWaveTimer, GameState.game);
                 }
 
                 break;
@@ -84,21 +90,33 @@ public class GameManager : MonoBehaviour
                     _previusState = GameState.gameOver;
                     chatController.ONChatEnable = false;
                     zombieController.StateManager(false);
+                    uiController.GameOver(true);
+                    StartCooldown(nextGameTimer, GameState.idle);
                 }
 
                 break;
         }
     }
 
-    private void StartCooldownNextWave()
+    private void Reset()
     {
-        if (coolDownNextWave != null)
-            coolDownNextWave = CoolDownNexWave();
+        cityController.Reset();
+        chatController.Reset();
     }
 
-    private IEnumerator CoolDownNexWave()
+    private void StartCooldown(float time, GameState stateNext)
     {
-        yield return new WaitForSeconds(coolDawnNextWaveTime);
-        SetState(GameState.game);
+        if (coolDown == null)
+        {
+            coolDown = CoolDown(time, stateNext);
+            StartCoroutine(coolDown);
+        }
+    }
+
+    private IEnumerator CoolDown(float time, GameState stateNext)
+    {
+        yield return new WaitForSeconds(time);
+        SetState(stateNext);
+        coolDown = null;
     }
 }

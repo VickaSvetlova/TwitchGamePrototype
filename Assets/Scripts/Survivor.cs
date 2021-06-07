@@ -120,4 +120,9 @@ public class Survivor : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, LookRadius);
     }
+
+    public void Kill()
+    {
+        Destroy(gameObject);
+    }
 }
