@@ -9,6 +9,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
 {
     public event Action<ZombieBase> OnZombieCreated;
     public event Action<ZombieBase> OnZombieReachedCity;
+    public event Action OnCurrentWaveIsOut;
 
     [SerializeField] private Transform moveTarget;
     [SerializeField] private GameObject zombiePrefab;
@@ -18,6 +19,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
     [SerializeField] private string[] nameZombi;
     [SerializeField] private float timerNextWave;
 
+    public GameManager GameManager { private get; set; }
     private List<string> _nameZombi = new List<string>();
 
     private List<Transform> posRandom = new List<Transform>();
@@ -30,9 +32,11 @@ public class ZombieController : MonoBehaviour, IZombieProvider
     private IEnumerator timerSpawnZombie;
     private IEnumerator cooldownNextWave;
 
+
     private void Start()
     {
         _nameZombi.AddRange(nameZombi);
+        GameManager.OnNextWave += NextWave;
         ResetRandom();
     }
 
@@ -47,41 +51,36 @@ public class ZombieController : MonoBehaviour, IZombieProvider
         ResetRandom();
     }
 
-    public void StateManager(bool state)
-    {
-        timerSpawnZombie = CooldownSpawnZombi();
+    // public void StateManager(bool state)
+    // {
+    //     timerSpawnZombie = CooldownSpawnZombie();
+    //
+    //     if (state)
+    //     {
+    //         ManagerState = state;
+    //         StartCoroutine(timerSpawnZombie);
+    //     }
+    //     else
+    //     {
+    //         if (timerSpawnZombie != null)
+    //         {
+    //             ManagerState = state;
+    //             StopCoroutine(timerSpawnZombie);
+    //         }
+    //     }
+    // }
 
-        if (state)
-        {
-            ManagerState = state;
-            StartCoroutine(timerSpawnZombie);
-        }
-        else
-        {
-            if (timerSpawnZombie != null)
-            {
-                ManagerState = state;
-                StopCoroutine(timerSpawnZombie);
-            }
-        }
-    }
-
-    private IEnumerator CooldownSpawnZombi()
+    private IEnumerator CooldownSpawnZombie()
     {
-        while (ManagerState)
+        while (waveCont[countWave] > 0)
         {
-            if (waveCont[countWave] > 0)
-            {
-                yield return new WaitForSeconds(timeSpawnZombi);
-                waveCont[countWave] -= 1;
-                SpawnZombie();
-            }
-            else
-            {
-                yield return new WaitForSeconds(timerNextWave);
-                NextWave();
-            }
+            yield return new WaitForSeconds(timeSpawnZombi);
+            waveCont[countWave] -= 1;
+            SpawnZombie();
         }
+
+        OnCurrentWaveIsOut?.Invoke();
+        timerSpawnZombie = null;
     }
 
     private void SpawnZombie()
@@ -119,7 +118,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
         zombieBase.walkSpeed = 5f;
         zombieBase.IDead += ZombiIsDead;
         zombieBase.IGoal += ZombiGoal;
-        zombieBase.hunger = Random.Range(10, 50);
+        zombieBase.hunger = Random.Range(2, 7);
         return zombieBase;
     }
 
@@ -168,6 +167,17 @@ public class ZombieController : MonoBehaviour, IZombieProvider
             ManagerState = false;
             return; //all wave end}
         }
+
+        if (timerSpawnZombie == null)
+        {
+            timerSpawnZombie = CooldownSpawnZombie();
+            StartCoroutine(timerSpawnZombie);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnNextWave -= NextWave;
     }
 
     #region IZombieProvider

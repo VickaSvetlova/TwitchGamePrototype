@@ -15,6 +15,7 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
+    public event Action OnNextWave;
     [SerializeField] private ZombieController zombieController;
     [SerializeField] private CityController cityController;
     [SerializeField] private UIController uiController;
@@ -38,12 +39,14 @@ public class GameManager : MonoBehaviour
 
         chatController.CharController = charController;
         charController.ZombieProvider = zombieController;
+        zombieController.GameManager = this;
 
         SubscribesControllers();
     }
 
     private void SubscribesControllers()
     {
+        zombieController.OnCurrentWaveIsOut += () => { SetState(GameState.statistic); };
         zombieController.OnZombieCreated += (zombie) => { uiController.CreateUIName(zombie); };
         zombieController.OnZombieReachedCity += (zombie) => { cityController.CityDamage(zombie); };
         chatController.OnUserAppeared += () => { SetState(GameState.game); };
@@ -61,8 +64,8 @@ public class GameManager : MonoBehaviour
                     Reset();
                     _previusState = GameState.idle;
                     chatController.ONChatEnable = true;
-                    zombieController.StateManager(false);
                     uiController.GameOver(false);
+                    uiController.Statistics(false);
                 }
 
                 break;
@@ -71,15 +74,17 @@ public class GameManager : MonoBehaviour
                 {
                     _previusState = GameState.game;
                     chatController.ONChatEnable = true;
-                    zombieController.StateManager(true);
+                    OnNextWave?.Invoke();
+                    uiController.Statistics(false);
                 }
 
                 break;
             case GameState.statistic:
                 if (_previusState == GameState.game)
                 {
+                    _previusState = GameState.statistic;
                     chatController.ONChatEnable = false;
-                    zombieController.StateManager(false);
+                    uiController.Statistics(true);
                     StartCooldown(nextWaveTimer, GameState.game);
                 }
 
@@ -89,7 +94,6 @@ public class GameManager : MonoBehaviour
                 {
                     _previusState = GameState.gameOver;
                     chatController.ONChatEnable = false;
-                    zombieController.StateManager(false);
                     uiController.GameOver(true);
                     StartCooldown(nextGameTimer, GameState.idle);
                 }

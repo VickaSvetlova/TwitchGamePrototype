@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private GameObject screenGameOver;
+    [SerializeField] private GameObject screenStatistics;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Slider slider;
     [SerializeField] private Text populationCount;
@@ -33,5 +34,10 @@ public class UIController : MonoBehaviour
     public void GameOver(bool state)
     {
         screenGameOver.SetActive(state);
+    }
+
+    public void Statistics(bool state)
+    {
+        screenStatistics.SetActive(state);
     }
 }
