@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
     {
         cityController.Reset();
         chatController.Reset();
+        zombieController.Reset();
     }
 
     private void StartCooldown(float time, GameState stateNext)
