@@ -51,25 +51,6 @@ public class ZombieController : MonoBehaviour, IZombieProvider
         ResetRandom();
     }
 
-    // public void StateManager(bool state)
-    // {
-    //     timerSpawnZombie = CooldownSpawnZombie();
-    //
-    //     if (state)
-    //     {
-    //         ManagerState = state;
-    //         StartCoroutine(timerSpawnZombie);
-    //     }
-    //     else
-    //     {
-    //         if (timerSpawnZombie != null)
-    //         {
-    //             ManagerState = state;
-    //             StopCoroutine(timerSpawnZombie);
-    //         }
-    //     }
-    // }
-
     private IEnumerator CooldownSpawnZombie()
     {
         while (waveCont[countWave] > 0)
@@ -77,6 +58,11 @@ public class ZombieController : MonoBehaviour, IZombieProvider
             yield return new WaitForSeconds(timeSpawnZombi);
             waveCont[countWave] -= 1;
             SpawnZombie();
+        }
+
+        while (zombiClons.Count > 0)
+        {
+            yield return null;
         }
 
         OnCurrentWaveIsOut?.Invoke();
@@ -93,10 +79,10 @@ public class ZombieController : MonoBehaviour, IZombieProvider
         SetRandomSpawnPosition(clonZomby);
     }
 
-    private void SetRandomSpawnPosition(GameObject clonZomby)
+    private void SetRandomSpawnPosition(GameObject clonZombie)
     {
         var rand = Random.Range(0, posRandom.Count);
-        clonZomby.transform.position = posRandom[Random.Range(0, posRandom.Count)].position;
+        clonZombie.transform.position = posRandom[Random.Range(0, posRandom.Count)].position;
         posRandom.RemoveAt(rand);
         if (posRandom.Count <= 0)
         {

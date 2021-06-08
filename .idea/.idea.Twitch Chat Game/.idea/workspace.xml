@@ -83,8 +83,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ChatController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ZombieBase.cs" />
         <option value="$PROJECT_DIR$/Assets/UIController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ZombieController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ZombieController.cs" />
       </list>
     </option>
   </component>
@@ -166,7 +166,7 @@
       <workItem from="1622970702074" duration="6043000" />
       <workItem from="1622976909601" duration="88000" />
       <workItem from="1623056683128" duration="7671000" />
-      <workItem from="1623143192130" duration="2741000" />
+      <workItem from="1623143192130" duration="3262000" />
     </task>
     <servers />
   </component>
@@ -277,49 +277,6 @@
     <state x="592" y="380" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623145462655" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs</url>
-          <line>87</line>
-          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Scripts\GameManager.cs" initialLine="87">
-            <startOffsets>
-              <option value="2882" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2927" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs</url>
-          <line>122</line>
-          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Scripts\GameManager.cs" initialLine="121">
-            <startOffsets>
-              <option value="3809" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3829" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs</url>
-          <line>76</line>
-          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Scripts\GameManager.cs" initialLine="76">
-            <startOffsets>
-              <option value="2472" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2493" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
         <watch expression="TargetAim != null" language="C#" />
