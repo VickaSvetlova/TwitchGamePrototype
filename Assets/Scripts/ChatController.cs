@@ -45,7 +45,6 @@ public class ChatController : MonoBehaviour
         {
             user.Value.Character.Kill();
         }
-
         _users.Clear();
     }
 

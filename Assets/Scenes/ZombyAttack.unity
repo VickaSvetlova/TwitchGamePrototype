@@ -1144,7 +1144,7 @@ MonoBehaviour:
   - {fileID: 1222632756}
   - {fileID: 810951385}
   timeSpawnZombi: 2
-  waveCont: 0300000003000000060000000c00000018000000
+  waveCont: 0000000003000000060000000c00000018000000
   nameZombi:
   - Joe
   - Martin

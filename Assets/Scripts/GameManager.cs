@@ -16,6 +16,7 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
     public event Action OnNextWave;
+    public event Action OnStopGame;
     [SerializeField] private ZombieController zombieController;
     [SerializeField] private CityController cityController;
     [SerializeField] private UIController uiController;
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour
                     _previusState = GameState.gameOver;
                     chatController.ONChatEnable = false;
                     uiController.GameOver(true);
+                    OnStopGame?.Invoke();
                     StartCooldown(nextGameTimer, GameState.idle);
                 }
 

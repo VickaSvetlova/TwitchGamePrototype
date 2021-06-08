@@ -16,7 +16,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
     [SerializeField] private Transform[] posSpawnZombi;
     [SerializeField] private float timeSpawnZombi;
     [SerializeField] private int[] waveCont = new[] {3, 6, 9, 12, 15};
-    private List<int> zombiesInWaves=new List<int>();
+    private List<int> zombiesInWaves = new List<int>();
     [SerializeField] private string[] nameZombi;
     [SerializeField] private float timerNextWave;
 
@@ -39,7 +39,13 @@ public class ZombieController : MonoBehaviour, IZombieProvider
         zombiesInWaves.AddRange(waveCont);
         _nameZombi.AddRange(nameZombi);
         GameManager.OnNextWave += NextWave;
+        GameManager.OnStopGame += StopGame;
         ResetRandom();
+    }
+
+    private void StopGame()
+    {
+        StopAllCoroutines();
     }
 
     public void Reset()
@@ -48,11 +54,14 @@ public class ZombieController : MonoBehaviour, IZombieProvider
         {
             zombie.Kill();
         }
+
         zombiClons.Clear();
         countWave = 0;
-        
+
         zombiesInWaves.Clear();
         zombiesInWaves.AddRange(waveCont);
+
+        timerSpawnZombie = null;
         
         ResetRandom();
     }

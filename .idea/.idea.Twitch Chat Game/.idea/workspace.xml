@@ -78,11 +78,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/IRese.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/IReset.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Survivor.cs" />
-        <option value="$PROJECT_DIR$/Assets/CityController.cs" />
         <option value="$PROJECT_DIR$/Assets/CharController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ChatController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ZombieBase.cs" />
         <option value="$PROJECT_DIR$/Assets/UIController.cs" />
+        <option value="$PROJECT_DIR$/Assets/CityController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ChatController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ZombieController.cs" />
       </list>
@@ -166,7 +166,7 @@
       <workItem from="1622970702074" duration="6043000" />
       <workItem from="1622976909601" duration="88000" />
       <workItem from="1623056683128" duration="7671000" />
-      <workItem from="1623143192130" duration="5302000" />
+      <workItem from="1623143192130" duration="6950000" />
     </task>
     <servers />
   </component>
