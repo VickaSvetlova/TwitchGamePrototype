@@ -13,7 +13,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
 
     [SerializeField] private Transform moveTarget;
     [SerializeField] private GameObject zombiePrefab;
-    [SerializeField] private Vector2 minEating, maxEating;
+    [SerializeField] private Vector2 min_maxEating;
     [SerializeField] private Transform[] posSpawnZombi;
     [SerializeField] private float timeSpawnZombi;
     [SerializeField] private int[] waveCont = new[] {3, 6, 9, 12, 15};
@@ -21,7 +21,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
     [SerializeField] private string[] nameZombi;
     [SerializeField] private float timerNextWave;
 
-    public GameManager GameManager { private get; set; }
+    // public GameManager GameManager { private get; set; }
     private List<string> _nameZombi = new List<string>();
 
     private List<Transform> posRandom = new List<Transform>();
@@ -39,12 +39,10 @@ public class ZombieController : MonoBehaviour, IZombieProvider
     {
         zombiesInWaves.AddRange(waveCont);
         _nameZombi.AddRange(nameZombi);
-        GameManager.OnNextWave += NextWave;
-        GameManager.OnStopGame += StopGame;
         ResetRandom();
     }
 
-    private void StopGame()
+    public void StopGame()
     {
         StopAllCoroutines();
     }
@@ -120,7 +118,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
         zombieBase.walkSpeed = 5f;
         zombieBase.IDead += ZombiIsDead;
         zombieBase.IGoal += ZombiGoal;
-        zombieBase.hunger = (int) Random.Range(minEating.x, maxEating.y);
+        zombieBase.hunger = (int) Random.Range(min_maxEating.x, min_maxEating.y);
         return zombieBase;
     }
 
@@ -175,11 +173,6 @@ public class ZombieController : MonoBehaviour, IZombieProvider
             timerSpawnZombie = CooldownSpawnZombie();
             StartCoroutine(timerSpawnZombie);
         }
-    }
-
-    private void OnDestroy()
-    {
-        GameManager.OnNextWave -= NextWave;
     }
 
     #region IZombieProvider

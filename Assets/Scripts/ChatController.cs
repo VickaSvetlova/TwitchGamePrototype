@@ -45,6 +45,7 @@ public class ChatController : MonoBehaviour
         {
             user.Value.Character.Kill();
         }
+
         _users.Clear();
     }
 
@@ -66,6 +67,11 @@ public class ChatController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PressButton();
+        }
+
         if (!ONChatEnable) return;
         if (_twitchClient != null && !_twitchClient.Connected)
         {
@@ -142,5 +148,21 @@ public class ChatController : MonoBehaviour
     public void GameInputs(string chatInputs, User user)
     {
         user.Character.TakeCommand(chatInputs.ToLower());
+    }
+
+    ///test zone
+    public void PressButton()
+    {
+        var chatName = "tory_shepard";
+        if (!_users.ContainsKey(chatName))
+        {
+            var user = CharController.CreateCharacter(chatName);
+            _users.Add(chatName, user);
+
+            if (_users.Count > 0)
+            {
+                OnUserAppeared?.Invoke();
+            }
+        }
     }
 }

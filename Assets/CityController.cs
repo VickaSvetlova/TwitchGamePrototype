@@ -7,83 +7,68 @@ using Random = UnityEngine.Random;
 
 public class CityController : MonoBehaviour
 {
-    public event Action<int, int> OnPopulationChange;
-    public event Action<Statistic> OnEvacuationComplite;
-    public event Action<int, int> OnEvacuationStat;
+    public event Action<WaveStatistic> OnPopulationChange;
     [SerializeField] private int populationMax;
     [SerializeField] private Vector2 maxMinEvacuationPiople;
-    private int populationCurrent;
-    private int populationEating;
-    private int populationEvacuation;
-
-    private IEnumerator coolDownEvacuation;
-    public GameManager GameManager { private get; set; }
+    private WaveStatistic _statistic;
 
     private void Start()
     {
         Reset();
-        GameManager.OnEvacuationTime += Evacuation;
     }
 
     public void Reset()
     {
-        populationCurrent = populationMax;
-        populationEvacuation = 0;
-        populationEating = 0;
-        OnEvacuationStat?.Invoke(populationMax, 0);
-        OnPopulationChange?.Invoke(populationMax, populationCurrent);
+        _statistic = new WaveStatistic(populationMax, populationMax);
+        OnPopulationChange?.Invoke(_statistic);
     }
 
     public void CityDamage(ZombieBase zombie)
     {
-        if (populationMax > 0)
-        {
-            populationCurrent -= zombie.hunger;
-            populationEating += zombie.hunger;
-        }
-
-        if (populationCurrent <= 0)
-        {
-            OnEvacuationComplite?.Invoke(CreateStatistic(populationMax, populationEvacuation, populationEating));
-            populationCurrent = 0;
-        }
-
-        OnPopulationChange?.Invoke(populationMax, populationCurrent);
+        _statistic.Eating(zombie.hunger);
+        OnPopulationChange?.Invoke(_statistic);
     }
 
-    private Statistic CreateStatistic(int max, int populationEvacuation, int populationEating)
-    {
-        var stat = new Statistic(max, populationEvacuation, populationEating);
-        return stat;
-    }
 
-    public void StopEvacuation()
-    {
-        if (coolDownEvacuation == null) return;
-        StopCoroutine(coolDownEvacuation);
-    }
-
-    private void Evacuation()
+    public void Evacuation()
     {
         var random = (int) Random.Range(maxMinEvacuationPiople.x, maxMinEvacuationPiople.y);
 
-        populationCurrent -= random;
-        populationEvacuation += random;
+        _statistic.Evacuation(random);
+        OnPopulationChange?.Invoke(_statistic);
+    }
+}
 
-        if (populationCurrent <= 0)
-        {
-            populationCurrent = 0;
-            OnEvacuationComplite?.Invoke(CreateStatistic(populationMax, populationEvacuation, populationEating));
-            StopEvacuation();
-            return;
-        }
+public class WaveStatistic
+{
+    public int populationMax { get; private set; }
+    public int populationCurrent { get; private set; }
+    public int populationEating { get; private set; }
+    public int populationEvacuation { get; private set; }
 
-        OnPopulationChange?.Invoke(populationMax, populationCurrent);
-        OnEvacuationStat?.Invoke(populationMax, populationEvacuation);
+    public WaveStatistic(int populationMax, int populationCurrent)
+    {
+        this.populationMax = populationMax;
+        this.populationCurrent = populationCurrent;
     }
 
-    private void OnDestroy()
+
+    public void Eating(int people)
     {
-        GameManager.OnEvacuationTime -= Evacuation;
+        var food = people > populationCurrent ? populationCurrent : people;
+        populationCurrent -= food;
+        populationEating += food;
+    }
+
+    public void Evacuation(int people)
+    {
+        var evacuationUnit = people > populationCurrent ? populationCurrent : people;
+        populationCurrent -= evacuationUnit;
+        populationEvacuation += evacuationUnit;
+    }
+
+    public bool CityIsEmpty()
+    {
+        return populationCurrent == 0;
     }
 }
