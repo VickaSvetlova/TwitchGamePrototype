@@ -13,6 +13,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
 
     [SerializeField] private Transform moveTarget;
     [SerializeField] private GameObject zombiePrefab;
+    [SerializeField] private Vector2 minEating, maxEating;
     [SerializeField] private Transform[] posSpawnZombi;
     [SerializeField] private float timeSpawnZombi;
     [SerializeField] private int[] waveCont = new[] {3, 6, 9, 12, 15};
@@ -62,7 +63,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
         zombiesInWaves.AddRange(waveCont);
 
         timerSpawnZombie = null;
-        
+
         ResetRandom();
     }
 
@@ -119,7 +120,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
         zombieBase.walkSpeed = 5f;
         zombieBase.IDead += ZombiIsDead;
         zombieBase.IGoal += ZombiGoal;
-        zombieBase.hunger = Random.Range(2, 7);
+        zombieBase.hunger = (int) Random.Range(minEating.x, maxEating.y);
         return zombieBase;
     }
 

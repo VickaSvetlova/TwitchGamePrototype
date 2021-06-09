@@ -2,30 +2,22 @@ using System;
 using System.Collections;
 using Script;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using Random = UnityEngine.Random;
 
 
 public class CityController : MonoBehaviour
 {
     public event Action<int, int> OnPopulationChange;
-    public event Action OnEvacuationComplite;
+    public event Action<Statistic> OnEvacuationComplite;
     public event Action<int, int> OnEvacuationStat;
     [SerializeField] private int populationMax;
     [SerializeField] private Vector2 maxMinEvacuationPiople;
-    [SerializeField] private float cooldownEvacuationTransport;
     private int populationCurrent;
-    private int evacutionCurrent;
+    private int populationEating;
+    private int populationEvacuation;
+
     private IEnumerator coolDownEvacuation;
-    public bool EvacuationProcess { private get; set; }
     public GameManager GameManager { private get; set; }
-
-
-    public float CooldownEvacuationTransport
-    {
-        get => cooldownEvacuationTransport;
-        set => cooldownEvacuationTransport = value;
-    }
 
     private void Start()
     {
@@ -36,18 +28,33 @@ public class CityController : MonoBehaviour
     public void Reset()
     {
         populationCurrent = populationMax;
-        evacutionCurrent = 0;
+        populationEvacuation = 0;
+        populationEating = 0;
+        OnEvacuationStat?.Invoke(populationMax, 0);
         OnPopulationChange?.Invoke(populationMax, populationCurrent);
     }
 
     public void CityDamage(ZombieBase zombie)
     {
-        populationCurrent -= zombie.hunger;
-        OnPopulationChange?.Invoke(populationMax, populationCurrent);
+        if (populationMax > 0)
+        {
+            populationCurrent -= zombie.hunger;
+            populationEating += zombie.hunger;
+        }
+
         if (populationCurrent <= 0)
         {
-            OnEvacuationComplite?.Invoke();
+            OnEvacuationComplite?.Invoke(CreateStatistic(populationMax, populationEvacuation, populationEating));
+            populationCurrent = 0;
         }
+
+        OnPopulationChange?.Invoke(populationMax, populationCurrent);
+    }
+
+    private Statistic CreateStatistic(int max, int populationEvacuation, int populationEating)
+    {
+        var stat = new Statistic(max, populationEvacuation, populationEating);
+        return stat;
     }
 
     public void StopEvacuation()
@@ -59,23 +66,20 @@ public class CityController : MonoBehaviour
     private void Evacuation()
     {
         var random = (int) Random.Range(maxMinEvacuationPiople.x, maxMinEvacuationPiople.y);
-        populationCurrent -= random;
 
-        if (populationCurrent >= random)
-        {
-            evacutionCurrent += random;
-        }
+        populationCurrent -= random;
+        populationEvacuation += random;
 
         if (populationCurrent <= 0)
         {
-            StopEvacuation();
-            OnEvacuationComplite?.Invoke();
             populationCurrent = 0;
+            OnEvacuationComplite?.Invoke(CreateStatistic(populationMax, populationEvacuation, populationEating));
+            StopEvacuation();
             return;
         }
 
         OnPopulationChange?.Invoke(populationMax, populationCurrent);
-        OnEvacuationStat?.Invoke(populationMax, evacutionCurrent);
+        OnEvacuationStat?.Invoke(populationMax, populationEvacuation);
     }
 
     private void OnDestroy()

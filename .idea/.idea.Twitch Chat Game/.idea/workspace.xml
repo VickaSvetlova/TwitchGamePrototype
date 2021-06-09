@@ -32,7 +32,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Script/User.cs" />
         <option value="$PROJECT_DIR$/../wannabe-resident-evil/Assets/WorldVisible.cs" />
         <option value="$PROJECT_DIR$/Assets/RandomSpawnCoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Player.cs" />
@@ -79,8 +78,9 @@
         <option value="$PROJECT_DIR$/Assets/CharController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ZombieBase.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ChatController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ZombieController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Statistic.cs" />
         <option value="$PROJECT_DIR$/Assets/UIController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ZombieController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/CityController.cs" />
       </list>
@@ -165,7 +165,7 @@
       <workItem from="1622976909601" duration="88000" />
       <workItem from="1623056683128" duration="7671000" />
       <workItem from="1623143192130" duration="7920000" />
-      <workItem from="1623229634114" duration="2913000" />
+      <workItem from="1623229634114" duration="7025000" />
     </task>
     <servers />
   </component>
@@ -258,10 +258,10 @@
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
     <state width="1593" height="298" key="GridCell.Tab.3.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623151250633" />
-    <state x="807" y="276" key="RiderGenerateDialog" timestamp="1622219430628">
+    <state x="807" y="276" key="RiderGenerateDialog" timestamp="1623234050137">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state x="807" y="276" key="RiderGenerateDialog/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1622219430628" />
+    <state x="807" y="276" key="RiderGenerateDialog/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623234050137" />
     <state width="752" height="496" key="XDebugger.FullValuePopup" timestamp="1621506978672">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
@@ -280,13 +280,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/CityController.cs</url>
-          <line>60</line>
+          <line>63</line>
           <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\CityController.cs" initialLine="59">
             <startOffsets>
-              <option value="1634" />
+              <option value="1822" />
             </startOffsets>
             <endOffsets>
-              <option value="1718" />
+              <option value="1906" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
@@ -296,49 +296,49 @@
           <line>77</line>
           <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\CityController.cs" initialLine="71">
             <startOffsets>
-              <option value="2123" />
+              <option value="2320" />
             </startOffsets>
             <endOffsets>
-              <option value="2181" />
+              <option value="2382" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs</url>
-          <line>156</line>
+          <line>160</line>
           <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Scripts\GameManager.cs" initialLine="156">
             <startOffsets>
-              <option value="4941" />
+              <option value="5027" />
             </startOffsets>
             <endOffsets>
-              <option value="4968" />
+              <option value="5054" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs</url>
-          <line>118</line>
+          <line>122</line>
           <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Scripts\GameManager.cs" initialLine="118">
             <startOffsets>
-              <option value="4023" />
+              <option value="4109" />
             </startOffsets>
             <endOffsets>
-              <option value="4069" />
+              <option value="4155" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs</url>
-          <line>125</line>
+          <line>129</line>
           <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Scripts\GameManager.cs" initialLine="125">
             <startOffsets>
-              <option value="4213" />
+              <option value="4299" />
             </startOffsets>
             <endOffsets>
-              <option value="4247" />
+              <option value="4333" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />

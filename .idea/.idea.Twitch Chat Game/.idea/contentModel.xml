@@ -56,6 +56,7 @@
           <e p="PlayerScore.cs" t="Include" />
           <e p="RandomSpawnCoint.cs" t="Include" />
           <e p="Rotation.cs" t="Include" />
+          <e p="Statistic.cs" t="Include" />
           <e p="Survivor.cs" t="Include" />
           <e p="TestControlCharacter.cs" t="Include" />
           <e p="TwitchChat.cs" t="Include" />

@@ -57,7 +57,11 @@ public class GameManager : MonoBehaviour
         zombieController.OnZombieReachedCity += (zombie) => { cityController.CityDamage(zombie); };
         chatController.OnUserAppeared += () => { SetState(GameState.game); };
         cityController.OnPopulationChange += (max, curr) => { uiController.SetPopulation(max, curr); };
-        cityController.OnEvacuationComplite += () => { SetState(GameState.gameOver); };
+        cityController.OnEvacuationComplite += (statistic) =>
+        {
+            uiController.SetLateData(statistic);
+            SetState(GameState.gameOver);
+        };
         cityController.OnEvacuationStat += (max, current) => { uiController.SetEvacuation(max, current); };
     }
 
