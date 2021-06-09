@@ -8,13 +8,17 @@ using Random = UnityEngine.Random;
 
 public class CityController : MonoBehaviour
 {
-    public event Action<int, int> PopulationChange;
-    public event Action EvacuationComplite;
+    public event Action<int, int> OnPopulationChange;
+    public event Action OnEvacuationComplite;
+    public event Action<int, int> OnEvacuationStat;
     [SerializeField] private int populationMax;
     [SerializeField] private Vector2 maxMinEvacuationPiople;
     [SerializeField] private float cooldownEvacuationTransport;
     private int populationCurrent;
+    private int evacutionCurrent;
     private IEnumerator coolDownEvacuation;
+    public bool EvacuationProcess { private get; set; }
+    public GameManager GameManager { private get; set; }
 
 
     public float CooldownEvacuationTransport
@@ -26,29 +30,24 @@ public class CityController : MonoBehaviour
     private void Start()
     {
         Reset();
+        GameManager.OnEvacuationTime += Evacuation;
     }
 
     public void Reset()
     {
         populationCurrent = populationMax;
-        PopulationChange?.Invoke(populationMax, populationCurrent);
+        evacutionCurrent = 0;
+        OnPopulationChange?.Invoke(populationMax, populationCurrent);
     }
 
     public void CityDamage(ZombieBase zombie)
     {
         populationCurrent -= zombie.hunger;
-        PopulationChange?.Invoke(populationMax, populationCurrent);
+        OnPopulationChange?.Invoke(populationMax, populationCurrent);
         if (populationCurrent <= 0)
         {
-            EvacuationComplite?.Invoke();
+            OnEvacuationComplite?.Invoke();
         }
-    }
-
-    public void StartEvacuation()
-    {
-        if (coolDownEvacuation != null) return;
-        coolDownEvacuation = CoolDownEvacuation(CooldownEvacuationTransport);
-        StartCoroutine(coolDownEvacuation);
     }
 
     public void StopEvacuation()
@@ -57,25 +56,30 @@ public class CityController : MonoBehaviour
         StopCoroutine(coolDownEvacuation);
     }
 
-    private IEnumerator CoolDownEvacuation(float timer)
-    {
-        while (coolDownEvacuation != null)
-        {
-            yield return new WaitForSeconds(timer);
-            Evacuation();
-        }
-    }
-
     private void Evacuation()
     {
-        populationCurrent -= (int) Random.Range(maxMinEvacuationPiople.x, maxMinEvacuationPiople.y);
+        var random = (int) Random.Range(maxMinEvacuationPiople.x, maxMinEvacuationPiople.y);
+        populationCurrent -= random;
+
+        if (populationCurrent >= random)
+        {
+            evacutionCurrent += random;
+        }
 
         if (populationCurrent <= 0)
         {
             StopEvacuation();
-            EvacuationComplite?.Invoke();
+            OnEvacuationComplite?.Invoke();
+            populationCurrent = 0;
+            return;
         }
 
-        PopulationChange?.Invoke(populationMax, populationCurrent);
+        OnPopulationChange?.Invoke(populationMax, populationCurrent);
+        OnEvacuationStat?.Invoke(populationMax, evacutionCurrent);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnEvacuationTime -= Evacuation;
     }
 }

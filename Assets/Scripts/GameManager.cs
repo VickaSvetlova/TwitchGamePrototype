@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 {
     public event Action OnNextWave;
     public event Action OnStopGame;
+    public event Action OnEvacuationTime;
     [SerializeField] private ZombieController zombieController;
     [SerializeField] private CityController cityController;
     [SerializeField] private UIController uiController;
@@ -24,8 +25,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CharController charController;
 
     [SerializeField] private float coolDawnNextWaveTime;
+    [SerializeField] private float coolDawnNextEvacuation;
 
     private IEnumerator coolDown;
+    private IEnumerator coolDownEvacuation;
+    private bool EvacuationTimerStatus;
 
 
     private GameState _previusState;
@@ -41,6 +45,7 @@ public class GameManager : MonoBehaviour
         chatController.CharController = charController;
         charController.ZombieProvider = zombieController;
         zombieController.GameManager = this;
+        cityController.GameManager = this;
 
         SubscribesControllers();
     }
@@ -51,8 +56,9 @@ public class GameManager : MonoBehaviour
         zombieController.OnZombieCreated += (zombie) => { uiController.CreateUIName(zombie); };
         zombieController.OnZombieReachedCity += (zombie) => { cityController.CityDamage(zombie); };
         chatController.OnUserAppeared += () => { SetState(GameState.game); };
-        cityController.PopulationChange += (max, curr) => { uiController.SetPopulation(max, curr); };
-        cityController.EvacuationComplite += () => { SetState(GameState.gameOver); };
+        cityController.OnPopulationChange += (max, curr) => { uiController.SetPopulation(max, curr); };
+        cityController.OnEvacuationComplite += () => { SetState(GameState.gameOver); };
+        cityController.OnEvacuationStat += (max, current) => { uiController.SetEvacuation(max, current); };
     }
 
     public void SetState(GameState _state)
@@ -73,6 +79,7 @@ public class GameManager : MonoBehaviour
             case GameState.game:
                 if (_previusState == GameState.idle || _previusState == GameState.statistic)
                 {
+                    StartEvacuation(coolDawnNextEvacuation);
                     _previusState = GameState.game;
                     chatController.ONChatEnable = true;
                     OnNextWave?.Invoke();
@@ -83,6 +90,7 @@ public class GameManager : MonoBehaviour
             case GameState.statistic:
                 if (_previusState == GameState.game)
                 {
+                    StopEvacuation();
                     _previusState = GameState.statistic;
                     chatController.ONChatEnable = false;
                     uiController.Statistics(true);
@@ -93,6 +101,7 @@ public class GameManager : MonoBehaviour
             case GameState.gameOver:
                 if (_previusState == GameState.game)
                 {
+                    StopEvacuation();
                     _previusState = GameState.gameOver;
                     chatController.ONChatEnable = false;
                     uiController.GameOver(true);
@@ -102,6 +111,19 @@ public class GameManager : MonoBehaviour
 
                 break;
         }
+    }
+
+    private void StartEvacuation(float time)
+    {
+        if (coolDownEvacuation == null)
+            coolDownEvacuation = CoolDownEvacuation(time);
+        StartCoroutine(coolDownEvacuation);
+    }
+
+    private void StopEvacuation()
+    {
+        if (coolDownEvacuation != null)
+            StopCoroutine(coolDownEvacuation);
     }
 
     private void Reset()
@@ -125,5 +147,14 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         SetState(stateNext);
         coolDown = null;
+    }
+
+    private IEnumerator CoolDownEvacuation(float time)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(time);
+            OnEvacuationTime?.Invoke();
+        }
     }
 }

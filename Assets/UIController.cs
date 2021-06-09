@@ -7,16 +7,22 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private GameObject screenGameOver;
     [SerializeField] private GameObject screenStatistics;
-    [SerializeField] private Canvas _canvas;
-    [SerializeField] private Slider slider;
+    [SerializeField] private Canvas _canvas; 
+    [SerializeField] private Slider sliderEvacuation;
+    [SerializeField] private Slider sliderPopulation;
     [SerializeField] private Text populationCount;
     [SerializeField] private GameObject UINamePrefab;
 
     public void SetPopulation(int populationMax, int populationCurrent)
     {
-        slider.maxValue = populationMax;
-        slider.value = populationCurrent;
+        sliderPopulation.maxValue = populationMax;
+        sliderPopulation.value = populationCurrent;
         populationCount.text = populationCurrent.ToString();
+    }
+    public void SetEvacuation(int populationMax, int evacuationCurrent)
+    {
+        sliderEvacuation.maxValue = populationMax;
+        sliderEvacuation.value = evacuationCurrent;
     }
 
     public void CreateUIName(ZombieBase zombieBase)
