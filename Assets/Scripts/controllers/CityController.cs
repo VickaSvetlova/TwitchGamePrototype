@@ -8,11 +8,11 @@ using Random = UnityEngine.Random;
 
 public class CityController : MonoBehaviour
 {
-    public event Action<GameStatistic> OnPopulationChange;
+    public event Action<IStatistic> OnPopulationChange;
     [SerializeField] private int populationMax;
     [SerializeField] private Vector2 maxMinEvacuationPiople;
-    private GameStatistic _statisticWave;
-    private List<GameStatistic> _gameStatistics = new List<GameStatistic>();
+    private WaveStatistic _statisticWave;
+    private List<WaveStatistic> _gameStatistics = new List<WaveStatistic>();
 
     private void Start()
     {
@@ -22,7 +22,7 @@ public class CityController : MonoBehaviour
     public void Reset()
     {
         _gameStatistics.Clear();
-        _statisticWave = new GameStatistic(populationMax, populationMax, _gameStatistics);
+        _statisticWave = new WaveStatistic(populationMax, populationMax, _gameStatistics);
         StartNextWave();
     }
 
@@ -32,16 +32,16 @@ public class CityController : MonoBehaviour
 
         current = _statisticWave != null ? _statisticWave.populationCurrent : populationMax;
 
-        _statisticWave = new GameStatistic(populationMax, current, _gameStatistics);
+        _statisticWave = new WaveStatistic(populationMax, current, _gameStatistics);
 
         _gameStatistics.Add(_statisticWave);
-        OnPopulationChange?.Invoke(_statisticWave);
+        CheckStatistics();
     }
 
     public void CityDamage(ZombieBase zombie)
     {
         _statisticWave.Eating(zombie.hunger);
-        OnPopulationChange?.Invoke(_statisticWave);
+        CheckStatistics();
     }
 
 
@@ -50,21 +50,32 @@ public class CityController : MonoBehaviour
         var random = (int) Random.Range(maxMinEvacuationPiople.x, maxMinEvacuationPiople.y);
 
         _statisticWave.Evacuation(random);
+        CheckStatistics();
+    }
+
+    private void CheckStatistics()
+    {
+        if (_statisticWave.CityIsEmpty())
+        {
+            OnPopulationChange?.Invoke(new FullStatistics(_gameStatistics));
+            return;
+        }
+
         OnPopulationChange?.Invoke(_statisticWave);
     }
 }
 
-public class GameStatistic
+public class WaveStatistic : IStatistic
 {
     public int populationMax { get; private set; }
     public int populationCurrent { get; private set; }
     public int populationEating { get; private set; }
     public int populationEvacuation { get; private set; }
 
-    public List<GameStatistic> gameStatistics { get; private set; }
+    public List<WaveStatistic> gameStatistics { get; private set; }
 
 
-    public GameStatistic(int populationMax, int populationCurrent, List<GameStatistic> gameStatistics)
+    public WaveStatistic(int populationMax, int populationCurrent, List<WaveStatistic> gameStatistics)
     {
         this.populationMax = populationMax;
         this.populationCurrent = populationCurrent;
@@ -90,17 +101,38 @@ public class GameStatistic
     {
         return populationCurrent == 0;
     }
+}
 
-    public GameStatistic GetGameStatistic()
+public class FullStatistics : IStatistic
+{
+    public int populationMax { get; }
+    public int populationCurrent { get; }
+    public int populationEating { get; }
+    public int populationEvacuation { get; }
+
+    public FullStatistics(List<WaveStatistic> waveStatistics)
     {
-        gameStatistics.RemoveAt(gameStatistics.Count - 1);
-        foreach (var statistic in gameStatistics)
+        foreach (var statistic in waveStatistics)
         {
             populationEating += statistic.populationEating;
             populationEvacuation += statistic.populationEvacuation;
-            populationMax = statistic.populationMax;
         }
 
-        return this;
+        populationMax = populationEating + populationEvacuation;
     }
+
+    public bool CityIsEmpty()
+    {
+        return true;
+    }
+}
+
+public interface IStatistic
+{
+    public int populationMax { get; }
+    public int populationCurrent { get; }
+    public int populationEating { get; }
+    public int populationEvacuation { get; }
+
+    public bool CityIsEmpty();
 }

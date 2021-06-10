@@ -17,19 +17,18 @@ public class UIController : MonoBehaviour
     [SerializeField] private Text StatPopulationMax;
     [SerializeField] private Text StatPopulationEvacuation;
     [SerializeField] private Text StatePpulationEating;
-
-
+    
     [SerializeField] private Slider sliderEvacuation;
     [SerializeField] private Slider sliderPopulation;
     [SerializeField] private GameObject UINamePrefab;
 
     private bool enable;
-    public void SetStatistic(GameStatistic statistic)
+    public void SetStatistic(IStatistic statistic)
     {
         if (statistic.CityIsEmpty())
         {
             if(enable) return; //костыль 
-            StatisticGameOver(statistic.GetGameStatistic());//всех съели
+            StatisticGameOver(statistic);//всех съели
             enable = true;
         }
         else
@@ -41,7 +40,7 @@ public class UIController : MonoBehaviour
         StatisticInGame(statistic);
     }
 
-    public void StatisticInGame(GameStatistic statistic)
+    public void StatisticInGame(IStatistic statistic)
     {
         sliderPopulation.maxValue = statistic.populationMax;
         sliderPopulation.value = statistic.populationCurrent;
@@ -49,14 +48,14 @@ public class UIController : MonoBehaviour
         sliderEvacuation.value = statistic.populationEvacuation;
     }
 
-    void StatisticGameOver(GameStatistic statistic)
+    void StatisticGameOver(IStatistic statistic)
     {
         populationMax.text = statistic.populationMax.ToString();
         populationEvacuation.text = statistic.populationEvacuation.ToString();
         populationEating.text = statistic.populationEating.ToString();
     }
 
-    void StatisticBetweenWave(GameStatistic statistic)
+    void StatisticBetweenWave(IStatistic statistic)
     {
         StatPopulationMax.text = statistic.populationCurrent.ToString();
         StatPopulationEvacuation.text = statistic.populationEvacuation.ToString();
