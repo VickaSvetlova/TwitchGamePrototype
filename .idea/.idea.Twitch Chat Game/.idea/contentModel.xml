@@ -6,73 +6,37 @@
     <e p="E:\git\Enginea\Unity\Twitch Chat Game" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="AiAgent.cs" t="Include" />
-        <e p="AIController.cs" t="Include" />
-        <e p="CharController.cs" t="Include" />
-        <e p="CityController.cs" t="Include" />
-        <e p="Five Seamless Tileable Ground Textures" t="Include">
-          <e p="read me.txt" t="Include" />
-        </e>
-        <e p="Free Low Poly Chess Set" t="Include">
-          <e p="Example" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="CameraRotate.cs" t="Include" />
-            </e>
-          </e>
-          <e p="README.txt" t="Include" />
-        </e>
-        <e p="PolygonApocalypse" t="Include">
-          <e p="Materials" t="Include">
-            <e p="Misc" t="Include">
-              <e p="Shader" t="Include">
-                <e p="Polygon_Triplanar.shader" t="Include" />
-                <e p="POLYGON_Zombies.shader" t="Include" />
-                <e p="SkyGradient.shader" t="Include" />
-              </e>
-            </e>
-          </e>
-        </e>
-        <e p="PolygonSciFiCity" t="Include">
-          <e p="Shaders" t="Include">
-            <e p="Polygon_Triplanar.shader" t="Include" />
-            <e p="Polygon_UVScroll.shader" t="Include" />
-          </e>
-        </e>
         <e p="Scripts" t="Include">
           <e p="BaseBullet.cs" t="Include" />
           <e p="BaseWeapon.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
-          <e p="Character.cs" t="Include" />
-          <e p="ChatController.cs" t="Include" />
-          <e p="Coin.cs" t="Include" />
+          <e p="controllers" t="Include">
+            <e p="CharController.cs" t="Include" />
+            <e p="ChatController.cs" t="Include" />
+            <e p="CityController.cs" t="Include" />
+            <e p="ZombieController.cs" t="Include" />
+          </e>
           <e p="EnemySpawner.cs" t="Include" />
-          <e p="GameManager.cs" t="Include" />
-          <e p="ICommand.cs" t="Include" />
-          <e p="IDestroyer.cs" t="Include" />
-          <e p="IReset.cs" t="Include" />
-          <e p="ITakeDamage.cs" t="Include" />
-          <e p="IZombieProvider.cs" t="Include" />
-          <e p="PlayerCardScore.cs" t="Include" />
+          <e p="interfaces" t="Include">
+            <e p="ICommand.cs" t="Include" />
+            <e p="IDestroyer.cs" t="Include" />
+            <e p="IReset.cs" t="Include" />
+            <e p="ITakeDamage.cs" t="Include" />
+            <e p="IZombieProvider.cs" t="Include" />
+          </e>
+          <e p="managers" t="Include">
+            <e p="GameManager.cs" t="Include" />
+          </e>
           <e p="PlayerScore.cs" t="Include" />
-          <e p="RandomSpawnCoint.cs" t="Include" />
-          <e p="Rotation.cs" t="Include" />
           <e p="Survivor.cs" t="Include" />
-          <e p="TestControlCharacter.cs" t="Include" />
+          <e p="TargetAim.cs" t="Include" />
           <e p="TwitchChat.cs" t="Include" />
+          <e p="UIController.cs" t="Include" />
           <e p="UIName.cs" t="Include" />
           <e p="User.cs" t="Include" />
           <e p="ZombieBase.cs" t="Include" />
-          <e p="ZombieController.cs" t="Include" />
+          <e p="ZoneDestroy.cs" t="Include" />
         </e>
-        <e p="SimpleFX" t="Include">
-          <e p="Materials" t="Include">
-            <e p="UnlitVertexColour_Alpha.shader" t="Include" />
-          </e>
-        </e>
-        <e p="TargetAim.cs" t="Include" />
-        <e p="UIController.cs" t="Include" />
-        <e p="Zona.cs" t="Include" />
-        <e p="ZoneDestroy.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />

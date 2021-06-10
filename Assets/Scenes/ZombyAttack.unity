@@ -1587,6 +1587,88 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &767602494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 767602495}
+  - component: {fileID: 767602497}
+  - component: {fileID: 767602496}
+  m_Layer: 5
+  m_Name: rules
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &767602495
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767602494}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1478294825}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -339, y: -104.79999}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &767602496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767602494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 31
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "\u041D\u0430\u043F\u0438\u0448\u0438 \"start\" \u0434\u043B\u044F \n\u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F
+    \u0438\u0433\u0440\u043E\u043A\u0430.\n\n\u041D\u0430\u043F\u0438\u0448\u0438
+    \u0438\u043C\u044F \u0437\u043E\u043C\u0431\u0438 \u0447\u0442\u043E\u0431\u044B
+    \n\u0446\u0435\u043B\u0438\u0442\u0441\u044F \u0438 \u0441\u0442\u0440\u0435\u043B\u044F\u0442\u044C"
+--- !u!222 &767602497
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767602494}
+  m_CullTransparentMesh: 1
 --- !u!1 &810951384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1678,7 +1760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveTarget: {fileID: 446774764}
   zombiePrefab: {fileID: 5314726485191055838, guid: 2950486d663f0314a876130e5b7f70c7, type: 3}
-  min_maxEating: {x: 2, y: 7}
+  minMAXEating: {x: 0, y: 0}
   posSpawnZombi:
   - {fileID: 1169710273}
   - {fileID: 1458205978}
@@ -1699,7 +1781,6 @@ MonoBehaviour:
   - Mike
   - Lonselot
   - Borat
-  timerNextWave: 10
 --- !u!4 &950731888
 Transform:
   m_ObjectHideFlags: 0
@@ -2606,7 +2687,7 @@ GameObject:
   - component: {fileID: 1417355518}
   - component: {fileID: 1417355517}
   m_Layer: 5
-  m_Name: Text
+  m_Name: chat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2818,6 +2899,7 @@ RectTransform:
   - {fileID: 1989446963}
   - {fileID: 1462100587}
   - {fileID: 1015142148}
+  - {fileID: 767602495}
   m_Father: {fileID: 1375963848}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2979,7 +3061,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 0}
+  m_BackGroundColor: {r: 0.26201493, g: 0.48930472, b: 0.5283019, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
