@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
                     _previusState = GameState.game;
                     chatController.ONChatEnable = true;
                     zombieController.NextWave();
+                    cityController.StartNextWave();
                     uiController.StatisticsWindow(false);
                 }
 

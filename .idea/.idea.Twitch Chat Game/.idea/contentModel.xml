@@ -14,6 +14,7 @@
             <e p="CharController.cs" t="Include" />
             <e p="ChatController.cs" t="Include" />
             <e p="CityController.cs" t="Include" />
+            <e p="UIController.cs" t="Include" />
             <e p="ZombieController.cs" t="Include" />
           </e>
           <e p="EnemySpawner.cs" t="Include" />
@@ -31,7 +32,6 @@
           <e p="Survivor.cs" t="Include" />
           <e p="TargetAim.cs" t="Include" />
           <e p="TwitchChat.cs" t="Include" />
-          <e p="UIController.cs" t="Include" />
           <e p="UIName.cs" t="Include" />
           <e p="User.cs" t="Include" />
           <e p="ZombieBase.cs" t="Include" />
