@@ -1803,7 +1803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveTarget: {fileID: 446774764}
   zombiePrefab: {fileID: 5314726485191055838, guid: 2950486d663f0314a876130e5b7f70c7, type: 3}
-  minMAXEating: {x: 2, y: 10}
+  minMAXEating: {x: 2, y: 5}
   posSpawnZombi:
   - {fileID: 1169710273}
   - {fileID: 1458205978}

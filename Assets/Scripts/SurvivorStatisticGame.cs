@@ -1,15 +1,16 @@
-﻿using Script.interfaces;
+﻿using System.Collections.Generic;
+using Script.interfaces;
 
 namespace Script
 {
-    public class SurvivorStatisticGame : ISurvivorStatistic
+    public class SurvivorStatisticGame
 
     {
-        public int TotalShoot { get; set; }
-        public int TotalHits { get; set; }
-        public int AimHits { get; set; }
-        public int HeadHits { get; set; }
-        public int TotalKills { get; set; }
-        
+        public List<ISurvivorStatistic> StatisticsGame;
+
+        public SurvivorStatisticGame(List<ISurvivorStatistic> statisticsGame)
+        {
+            StatisticsGame = statisticsGame;
+        }
     }
 }

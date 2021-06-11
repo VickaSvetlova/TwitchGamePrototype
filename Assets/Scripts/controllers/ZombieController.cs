@@ -110,7 +110,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
     {
         var tempName = TakeRandomName(); //TakeRandomName();
         zombieBase.Name = tempName;
-        zombieBase.health = 5;
+        zombieBase.health = 10;
         zombieBase.targetMove = moveTarget.position;
         zombieBase.walkSpeed = 2f;
         zombieBase.IDead += ZombiIsDead;
