@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Script;
 using UnityEngine;
@@ -7,6 +8,7 @@ using UnityEngine;
 public class Survivor : MonoBehaviour
 
 {
+    public event Action<BaseBullet> OnEventBullet;
     [SerializeField] private float lookRadius;
     private BaseWeapon _weapon;
     public GameObject TargetAim { get; set; }

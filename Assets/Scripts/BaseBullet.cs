@@ -1,13 +1,26 @@
 ﻿using System;
 using UnityEngine;
+
 [RequireComponent(typeof(Rigidbody))]
 public class BaseBullet : MonoBehaviour
 {
+    //statistic
+    public event Action<BaseBullet, ITakeDamage> OnHit;
+    public WeaponMode WeaponMode { get; set; }
+    public Survivor Owner { get; set; }
+
+    //setting
+    // public float damage{get;set;}
+    // public float stanEffect{get;set;}
     private Rigidbody _rigidbody => GetComponent<Rigidbody>();
-    float Speed=7000f;
-    float Damage=1f;
-    float DestroyTime=5f;
-    public float stanEffect=0.5f;
+
+    //костыль
+    float Speed = 7000f;
+    float Damage = 1f;
+    float DestroyTime = 5f;
+
+    public float stanEffect = 0.5f;
+    //
 
     private void Awake()
     {
@@ -29,15 +42,15 @@ public class BaseBullet : MonoBehaviour
     {
         var tempOther = other.collider.GetComponent<IDestroyer>();
         var tempOtherDamge = other.collider.GetComponent<ITakeDamage>();
-        
+
         if (tempOtherDamge != null)
         {
-            tempOtherDamge.TakeDamage(gameObject,Damage);
+            tempOtherDamge.TakeDamage(gameObject, Damage);
         }
+
         if (tempOther != null)
         {
             Destroy(gameObject);
         }
-        
     }
 }

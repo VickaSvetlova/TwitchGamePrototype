@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Script.controllers;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIController uiController;
     [SerializeField] private ChatController chatController;
     [SerializeField] private CharController charController;
+    [SerializeField] private SurvivorStatisticController survivorStatisticController;
 
     [SerializeField] private float coolDawnNextEvacuation;
 
@@ -50,6 +52,8 @@ public class GameManager : MonoBehaviour
         zombieController.OnZombieCreated += (zombie) => { uiController.CreateUIName(zombie); };
         zombieController.OnZombieReachedCity += (zombie) => { cityController.CityDamage(zombie); };
         chatController.OnUserAppeared += () => { SetState(GameState.game); };
+        charController.OnUserCreated += (user) => { };
+        
         cityController.OnPopulationChange += (statistic) =>
         {
             if (statistic.CityIsEmpty())
@@ -59,6 +63,7 @@ public class GameManager : MonoBehaviour
 
             uiController.SetStatistic(statistic);
         };
+        
     }
 
     public void SetState(GameState _state)

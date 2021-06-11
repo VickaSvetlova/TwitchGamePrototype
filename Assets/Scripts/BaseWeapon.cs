@@ -2,8 +2,16 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+public enum WeaponMode
+{
+    auto,
+    aim,
+    headshoot
+}
+
 public class BaseWeapon
 {
+    public event Action<BaseBullet> OnCreateBullet;
     private Survivor owner { get; set; }
     public float AutoCD { get; }
     public float AimingCD { get; }
@@ -34,10 +42,10 @@ public class BaseWeapon
     {
         yield return new WaitForSeconds(FireRate);
 
-        Fire();
+        CreateBullet();
     }
 
-    private void Fire()
+    private void CreateBullet()
     {
         if (owner.TargetAim == null) return;
 
@@ -56,10 +64,10 @@ public class BaseWeapon
         tempBullet.transform.position = owner.Gunpoint.position;
         tempBullet.transform.forward = direction;
 
+        OnCreateBullet?.Invoke(tempBullet.GetComponent<BaseBullet>());
+
         Debug.Log("fire");
         Debug.DrawLine(owner.gameObject.transform.position, owner.TargetAim.transform.position, Color.red);
-
-        //
     }
 
     public void Reload()

@@ -9,11 +9,11 @@
         <e p="Scripts" t="Include">
           <e p="BaseBullet.cs" t="Include" />
           <e p="BaseWeapon.cs" t="Include" />
-          <e p="Bullet.cs" t="Include" />
           <e p="controllers" t="Include">
             <e p="CharController.cs" t="Include" />
             <e p="ChatController.cs" t="Include" />
             <e p="CityController.cs" t="Include" />
+            <e p="SurvivorStatisticController.cs" t="Include" />
             <e p="UIController.cs" t="Include" />
             <e p="ZombieController.cs" t="Include" />
           </e>
@@ -22,6 +22,7 @@
             <e p="ICommand.cs" t="Include" />
             <e p="IDestroyer.cs" t="Include" />
             <e p="IReset.cs" t="Include" />
+            <e p="ISurvivorStatistic.cs" t="Include" />
             <e p="ITakeDamage.cs" t="Include" />
             <e p="IZombieProvider.cs" t="Include" />
           </e>
@@ -30,6 +31,8 @@
           </e>
           <e p="PlayerScore.cs" t="Include" />
           <e p="Survivor.cs" t="Include" />
+          <e p="SurvivorStatisticGame.cs" t="Include" />
+          <e p="SurvivorStatisticWave.cs" t="Include" />
           <e p="TargetAim.cs" t="Include" />
           <e p="TwitchChat.cs" t="Include" />
           <e p="UIName.cs" t="Include" />

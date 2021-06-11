@@ -20,9 +20,7 @@ namespace Script
         public Action<ZombieBase> IGoal;
         public Vector3 targetMove;
         public float walkSpeed;
-        public float timeEffectStan;
         public float health;
-        public float timeToDestroy;
         public int hunger;
 
         private GameObject _targetMarcker;
@@ -67,10 +65,6 @@ namespace Script
         {
             //анимациия смерти.
             //timeToDie
-        }
-
-        public void TakeDamage(float damage, Bullet bullet)
-        {
         }
 
         private IEnumerator ColdownTimerStanEffect(float bulletStanEffect)

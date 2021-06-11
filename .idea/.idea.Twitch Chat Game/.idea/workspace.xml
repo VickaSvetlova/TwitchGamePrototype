@@ -27,15 +27,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Coin.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/RandomColor.cs" />
-        <option value="$PROJECT_DIR$/Assets/PlayerScore.cs" />
-        <option value="$PROJECT_DIR$/Assets/PlayerCardScore.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PlayerCardScore.cs" />
-        <option value="$PROJECT_DIR$/Assets/Zona.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/Player.cs" />
-        <option value="$PROJECT_DIR$/Assets/AIController.cs" />
-        <option value="$PROJECT_DIR$/Assets/AIAgent.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Bullet.cs" />
         <option value="$PROJECT_DIR$/Assets/ZombiManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ZoneDestroy.cs" />
@@ -59,14 +50,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ZombiController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScore.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BaseWeapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/User.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/IZombieProvider.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/IDestroyer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/IRese.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/IReset.cs" />
         <option value="$PROJECT_DIR$/Assets/CharController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ZombieBase.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Statistic.cs" />
         <option value="$PROJECT_DIR$/Assets/CityController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
@@ -74,10 +63,21 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ChatController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ZombieController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/controllers/ZombieController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/managers/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Survivor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/controllers/UIController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/controllers/CityController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/interfaces/ISurvivorStatisticWave.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SurviorStatisticWave.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/interfaces/ISurvivorStatistic.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/controllers/CharController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/managers/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SurvivorStatisticWave.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SurvivorStatisticGame.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BaseBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BaseWeapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Survivor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ZombieBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/controllers/SurvivorStatisticController.cs" />
       </list>
     </option>
   </component>
@@ -112,10 +112,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16232">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="16232" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -167,6 +167,7 @@
       <workItem from="1623311547380" duration="413000" />
       <workItem from="1623316209248" duration="6965000" />
       <workItem from="1623328276571" duration="3598000" />
+      <workItem from="1623402227003" duration="6553000" />
     </task>
     <servers />
   </component>
@@ -259,10 +260,10 @@
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
     <state width="1595" height="183" key="GridCell.Tab.3.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623332454377" />
-    <state x="807" y="276" key="RiderGenerateDialog" timestamp="1623329906850">
+    <state x="807" y="276" key="RiderGenerateDialog" timestamp="1623403667606">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state x="807" y="276" key="RiderGenerateDialog/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623329906850" />
+    <state x="807" y="276" key="RiderGenerateDialog/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623403667606" />
     <state width="752" height="496" key="XDebugger.FullValuePopup" timestamp="1621506978672">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>

@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class CharController : MonoBehaviour
 {
+    public event Action<User> OnUserCreated; 
     [SerializeField] private GameObject prefabPlayer;
     [SerializeField] private Transform[] PositionSpawn;
     private List<Transform> _positionSpawn = new List<Transform>();
