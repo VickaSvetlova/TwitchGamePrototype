@@ -85,22 +85,42 @@ namespace Script
         }
 
 
-        public void TakeDamage(GameObject owner, float damage)
+        public HitInfo TakeDamage(BaseBullet bullet, float damage)
         {
+            var tempHitInfo = new HitInfo();
+            tempHitInfo.BaseBullet = bullet;
+
             ShowEffect();
             health -= damage;
             if (health <= 0)
             {
                 state = States.dead;
                 IDead?.Invoke(this);
+
+                tempHitInfo.Dead = true;
             }
             else
             {
+                switch (bullet.WeaponMode)
+                {
+                    case WeaponMode.auto:
+                        tempHitInfo.AutoShoot = true;
+                        break;
+                    case WeaponMode.aim:
+                        tempHitInfo.ShootAiming = true;
+                        break;
+                    case WeaponMode.headshoot:
+                        tempHitInfo.ShootAiming = true;
+                        break;
+                }
+
                 state = States.stay;
                 if (coldownTimerStanEffect != null) StopCoroutine(coldownTimerStanEffect);
-                coldownTimerStanEffect = ColdownTimerStanEffect(owner.GetComponent<BaseBullet>().stanEffect);
+                coldownTimerStanEffect = ColdownTimerStanEffect(bullet.GetComponent<BaseBullet>().stanEffect);
                 StartCoroutine(coldownTimerStanEffect);
             }
+
+            return tempHitInfo;
         }
 
         public void DestroyOnCollision(GameObject gameObject)

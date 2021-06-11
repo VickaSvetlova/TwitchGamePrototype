@@ -2,5 +2,5 @@
 
 public interface ITakeDamage
 {
-    void TakeDamage(GameObject owner, float damage);
+    HitInfo TakeDamage(BaseBullet bullet, float damage);
 }

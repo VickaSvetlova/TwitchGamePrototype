@@ -11,7 +11,7 @@ namespace Script.controllers
 
         public void CreatedUser(User user)
         {
-              if (!_survivorsStatistics.ContainsKey(user))
+            if (!_survivorsStatistics.ContainsKey(user))
             {
                 _survivorsStatistics.Add(user, new SurvivorStatisticWave());
                 SubscribeEventBullet(user);
@@ -23,16 +23,18 @@ namespace Script.controllers
             user.Character.OnEventBullet += ChangeStatistic;
         }
 
-
         private void ChangeStatistic(BaseBullet bullet)
         {
             var user = bullet.Owner.user;
-            
-            _survivorsStatistics[user].TotalShoot += 1;
+            var statistic = _survivorsStatistics[user];
 
-            bullet.OnHit += (bullet, victim) =>
+            statistic.TotalShoot += 1;
+
+            bullet.OnHit += (hitInfo) =>
             {
-                
+                statistic.AimHits += !hitInfo.ShootAiming ? 1 : 0;
+                statistic.HeadHits += !hitInfo.Head ? 1 : 0;
+                statistic.TotalKills += !hitInfo.Dead ? 1 : 0;
             };
         }
     }

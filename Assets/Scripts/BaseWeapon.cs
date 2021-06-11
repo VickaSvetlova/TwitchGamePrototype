@@ -67,8 +67,9 @@ public class BaseWeapon
 
 
         OnCreateBullet?.Invoke(baseBullet);
+        
 
-        Debug.Log("fire");
+        Debug.Log("fire mode "+baseBullet.WeaponMode);
         Debug.DrawLine(owner.gameObject.transform.position, owner.TargetAim.transform.position, Color.red);
     }
 

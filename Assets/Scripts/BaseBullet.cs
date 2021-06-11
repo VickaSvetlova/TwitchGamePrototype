@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseBullet : MonoBehaviour
 {
     //statistic
-    public event Action<BaseBullet, ITakeDamage> OnHit;
+    public event Action<HitInfo> OnHit;
     public WeaponMode WeaponMode { get; set; }
     public Survivor Owner { get; set; }
 
@@ -45,7 +45,9 @@ public class BaseBullet : MonoBehaviour
 
         if (tempOtherDamge != null)
         {
-            tempOtherDamge.TakeDamage(gameObject, Damage);
+            var HitStruct = tempOtherDamge.TakeDamage(this, Damage);
+
+            OnHit?.Invoke(HitStruct);
         }
 
         if (tempOther != null)
@@ -53,4 +55,13 @@ public class BaseBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+}
+
+public struct HitInfo
+{
+    public BaseBullet BaseBullet;
+    public bool Dead { get; set; }
+    public bool Head { get; set; }
+    public bool ShootAiming { get; set; }
+    public bool AutoShoot { get; set; }
 }

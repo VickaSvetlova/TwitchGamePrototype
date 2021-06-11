@@ -75,6 +75,8 @@ public class AutoShootCommand : ICommand
     private GameObject TargetAim { get; set; }
 
     protected float coolDown { get; set; }
+    
+    protected WeaponMode mode { get; set; }
 
     public IEnumerator Execute()
     {
@@ -88,10 +90,15 @@ public class AutoShootCommand : ICommand
 
             yield return new WaitForSeconds(coolDown);
             DebugLog();
+            Player.Weapon.OnCreateBullet += OnShoot;
             yield return Player.Weapon.Shoot();
+            Player.Weapon.OnCreateBullet -= OnShoot;
         }
+    }
 
-       
+    private void OnShoot(BaseBullet bullet)
+    {
+        bullet.WeaponMode = mode;
     }
 
     public virtual void DebugLog()
@@ -110,6 +117,7 @@ public class AutoShootCommand : ICommand
         this.TargetAim = targetAim;
         this.Player = player;
         this.coolDown = player.Weapon.auto;
+        this.mode = WeaponMode.auto;
     }
 }
 
@@ -121,6 +129,7 @@ public class AimedShotCommand : AutoShootCommand
     public AimedShotCommand(GameObject targetAim, Survivor player) : base(targetAim, player)
     {
         this.coolDown = player.Weapon.aiming;
+        mode = WeaponMode.aim;
     }
 
     public override void DebugLog()
@@ -150,7 +159,9 @@ public class HeadshotCommand : AutoShootCommand
     public HeadshotCommand(GameObject targetAim, Survivor player) : base(targetAim, player)
     {
         this.coolDown = player.Weapon.headShoot;
+        mode = WeaponMode.headshoot;
     }
+
     public override void DebugLog()
     {
         Debug.Log("pulling the trigger HeadShoot");
@@ -161,7 +172,7 @@ public class HeadshotShotFactory : CommandFactory
 {
     public override bool Match(string textCommand)
     {
-        return "headshot" == textCommand;
+        return "headshoot" == textCommand;
     }
 
     public override ICommand CreateCommand(Survivor player)
@@ -169,6 +180,7 @@ public class HeadshotShotFactory : CommandFactory
         return new HeadshotCommand(player.TargetAim, player);
     }
 }
+
 /// <summary>
 /// /////
 /// </summary>

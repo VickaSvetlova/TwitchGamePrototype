@@ -112,7 +112,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
         zombieBase.Name = tempName;
         zombieBase.health = 5;
         zombieBase.targetMove = moveTarget.position;
-        zombieBase.walkSpeed = 5f;
+        zombieBase.walkSpeed = 2f;
         zombieBase.IDead += ZombiIsDead;
         zombieBase.IGoal += ZombiGoal;
         zombieBase.hunger = (int) Random.Range(minMAXEating.x, minMAXEating.y);
