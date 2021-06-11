@@ -11,7 +11,7 @@ namespace Script.controllers
 
         public void CreatedUser(User user)
         {
-            if (!_survivorsStatistics.ContainsKey(user))
+              if (!_survivorsStatistics.ContainsKey(user))
             {
                 _survivorsStatistics.Add(user, new SurvivorStatisticWave());
                 SubscribeEventBullet(user);
@@ -26,7 +26,14 @@ namespace Script.controllers
 
         private void ChangeStatistic(BaseBullet bullet)
         {
+            var user = bullet.Owner.user;
             
+            _survivorsStatistics[user].TotalShoot += 1;
+
+            bullet.OnHit += (bullet, victim) =>
+            {
+                
+            };
         }
     }
 }

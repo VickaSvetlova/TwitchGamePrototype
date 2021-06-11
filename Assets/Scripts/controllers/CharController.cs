@@ -34,6 +34,7 @@ public class CharController : MonoBehaviour
         temp.user = user;
         player.GetComponent<Renderer>().material.color = color;
         chars.Add(player);
+        OnUserCreated?.Invoke(user);
         return user;
     }
 

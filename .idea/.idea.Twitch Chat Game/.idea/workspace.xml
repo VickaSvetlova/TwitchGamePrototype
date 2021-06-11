@@ -69,15 +69,15 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/SurviorStatisticWave.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/interfaces/ISurvivorStatistic.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/controllers/CharController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/managers/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SurvivorStatisticWave.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SurvivorStatisticGame.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BaseBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ZombieBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/managers/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/controllers/SurvivorStatisticController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BaseWeapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Survivor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ZombieBase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/controllers/SurvivorStatisticController.cs" />
       </list>
     </option>
   </component>
@@ -112,10 +112,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="2352">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="2352" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -167,7 +167,7 @@
       <workItem from="1623311547380" duration="413000" />
       <workItem from="1623316209248" duration="6965000" />
       <workItem from="1623328276571" duration="3598000" />
-      <workItem from="1623402227003" duration="6553000" />
+      <workItem from="1623402227003" duration="10698000" />
     </task>
     <servers />
   </component>
@@ -192,42 +192,42 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="803" height="464" key="DebuggerActiveHint" timestamp="1623331743366">
+    <state width="803" height="464" key="DebuggerActiveHint" timestamp="1623414934275">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="803" height="464" key="DebuggerActiveHint/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623331743366" />
-    <state width="1595" height="183" key="GridCell.Tab.0.bottom" timestamp="1623332454376">
+    <state width="803" height="464" key="DebuggerActiveHint/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623414934275" />
+    <state width="1596" height="183" key="GridCell.Tab.0.bottom" timestamp="1623414377157">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1595" height="183" key="GridCell.Tab.0.bottom/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623332454376" />
-    <state width="1595" height="183" key="GridCell.Tab.0.center" timestamp="1623332454376">
+    <state width="1596" height="183" key="GridCell.Tab.0.bottom/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623414377157" />
+    <state width="1596" height="183" key="GridCell.Tab.0.center" timestamp="1623414377157">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1595" height="183" key="GridCell.Tab.0.center/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623332454376" />
-    <state width="1595" height="183" key="GridCell.Tab.0.left" timestamp="1623332454376">
+    <state width="1596" height="183" key="GridCell.Tab.0.center/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623414377157" />
+    <state width="1596" height="183" key="GridCell.Tab.0.left" timestamp="1623414377157">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1595" height="183" key="GridCell.Tab.0.left/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623332454376" />
-    <state width="1595" height="183" key="GridCell.Tab.0.right" timestamp="1623332454376">
+    <state width="1596" height="183" key="GridCell.Tab.0.left/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623414377157" />
+    <state width="1596" height="183" key="GridCell.Tab.0.right" timestamp="1623414377157">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1595" height="183" key="GridCell.Tab.0.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623332454376" />
-    <state width="1595" height="183" key="GridCell.Tab.1.bottom" timestamp="1623332454376">
+    <state width="1596" height="183" key="GridCell.Tab.0.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623414377157" />
+    <state width="1596" height="183" key="GridCell.Tab.1.bottom" timestamp="1623414737165">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1595" height="183" key="GridCell.Tab.1.bottom/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623332454376" />
-    <state width="1595" height="183" key="GridCell.Tab.1.center" timestamp="1623332454376">
+    <state width="1596" height="183" key="GridCell.Tab.1.bottom/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623414737165" />
+    <state width="1596" height="183" key="GridCell.Tab.1.center" timestamp="1623414737164">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1595" height="183" key="GridCell.Tab.1.center/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623332454376" />
-    <state width="1595" height="183" key="GridCell.Tab.1.left" timestamp="1623332454376">
+    <state width="1596" height="183" key="GridCell.Tab.1.center/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623414737164" />
+    <state width="1596" height="183" key="GridCell.Tab.1.left" timestamp="1623414737164">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1595" height="183" key="GridCell.Tab.1.left/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623332454376" />
-    <state width="1595" height="183" key="GridCell.Tab.1.right" timestamp="1623332454376">
+    <state width="1596" height="183" key="GridCell.Tab.1.left/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623414737164" />
+    <state width="1596" height="183" key="GridCell.Tab.1.right" timestamp="1623414737165">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="1595" height="183" key="GridCell.Tab.1.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623332454376" />
+    <state width="1596" height="183" key="GridCell.Tab.1.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623414737165" />
     <state width="1595" height="183" key="GridCell.Tab.2.bottom" timestamp="1623332454376">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
@@ -282,6 +282,88 @@
     <state x="754" y="279" key="run.anything.popup/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623246710471" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/controllers/SurvivorStatisticController.cs</url>
+          <line>32</line>
+          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Scripts\controllers\SurvivorStatisticController.cs" initialLine="32">
+            <startOffsets>
+              <option value="913" />
+            </startOffsets>
+            <endOffsets>
+              <option value="994" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BaseWeapon.cs</url>
+          <line>68</line>
+          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Scripts\BaseWeapon.cs" initialLine="68">
+            <startOffsets>
+              <option value="1755" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1790" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/controllers/SurvivorStatisticController.cs</url>
+          <line>28</line>
+          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Scripts\controllers\SurvivorStatisticController.cs" initialLine="28">
+            <startOffsets>
+              <option value="801" />
+            </startOffsets>
+            <endOffsets>
+              <option value="830" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/controllers/SurvivorStatisticController.cs</url>
+          <line>22</line>
+          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Scripts\controllers\SurvivorStatisticController.cs" initialLine="22">
+            <startOffsets>
+              <option value="662" />
+            </startOffsets>
+            <endOffsets>
+              <option value="710" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/controllers/SurvivorStatisticController.cs</url>
+          <line>15</line>
+          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Scripts\controllers\SurvivorStatisticController.cs" initialLine="15">
+            <startOffsets>
+              <option value="457" />
+            </startOffsets>
+            <endOffsets>
+              <option value="517" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/controllers/SurvivorStatisticController.cs</url>
+          <line>13</line>
+          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Scripts\controllers\SurvivorStatisticController.cs" initialLine="13">
+            <startOffsets>
+              <option value="382" />
+            </startOffsets>
+            <endOffsets>
+              <option value="426" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
         <watch expression="TargetAim != null" language="C#" />

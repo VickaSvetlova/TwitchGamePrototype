@@ -12,7 +12,7 @@ public class Survivor : MonoBehaviour
     [SerializeField] private float lookRadius;
     private BaseWeapon _weapon;
     public GameObject TargetAim { get; set; }
-    public User user { private get; set; }
+    public User user { get; set; }
 
     private List<CommandFactory> CommandFactories = new List<CommandFactory>();
 
@@ -32,7 +32,11 @@ public class Survivor : MonoBehaviour
     public BaseWeapon Weapon
     {
         get => _weapon;
-        private set => _weapon = value;
+        private set
+        {
+            _weapon = value;
+            _weapon.OnCreateBullet += (bullet) => { OnEventBullet?.Invoke(bullet); };
+        }
     }
 
     public float LookRadius => lookRadius;

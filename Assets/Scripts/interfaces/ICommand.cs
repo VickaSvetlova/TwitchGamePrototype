@@ -109,7 +109,7 @@ public class AutoShootCommand : ICommand
     {
         this.TargetAim = targetAim;
         this.Player = player;
-        this.coolDown = player.Weapon.AutoCD;
+        this.coolDown = player.Weapon.auto;
     }
 }
 
@@ -120,7 +120,7 @@ public class AimedShotCommand : AutoShootCommand
 {
     public AimedShotCommand(GameObject targetAim, Survivor player) : base(targetAim, player)
     {
-        this.coolDown = player.Weapon.AimingCD;
+        this.coolDown = player.Weapon.aiming;
     }
 
     public override void DebugLog()
@@ -149,7 +149,7 @@ public class HeadshotCommand : AutoShootCommand
 {
     public HeadshotCommand(GameObject targetAim, Survivor player) : base(targetAim, player)
     {
-        this.coolDown = player.Weapon.HeadShootCD;
+        this.coolDown = player.Weapon.headShoot;
     }
     public override void DebugLog()
     {
