@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
+using twitch.game.Iface;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 namespace Script
 {
-    public class ZombieBase : MonoBehaviour, IDestroyer, ITakeDamage
+    public class ZombieBase : MonoBehaviour, IDestroyer, ITakeDamage, IName
     {
         enum States
         {
@@ -137,5 +138,9 @@ namespace Script
         {
             Destroy(gameObject);
         }
+
+        public string CharacterName { get; set; }
+
+        public GameObject CharacterGameObject { get; set; }
     }
 }

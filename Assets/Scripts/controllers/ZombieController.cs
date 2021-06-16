@@ -109,7 +109,8 @@ public class ZombieController : MonoBehaviour, IZombieProvider
     private ZombieBase SetUpZombie(ZombieBase zombieBase)
     {
         var tempName = TakeRandomName(); //TakeRandomName();
-        zombieBase.Name = tempName;
+        zombieBase.CharacterName = tempName;
+        zombieBase.CharacterGameObject = zombieBase.gameObject;
         zombieBase.health = 10;
         zombieBase.targetMove = moveTarget.position;
         zombieBase.walkSpeed = 2f;
@@ -178,7 +179,7 @@ public class ZombieController : MonoBehaviour, IZombieProvider
     {
         foreach (var zombi in zombiClons)
         {
-            if (string.Equals(zombi.Name, name, StringComparison.CurrentCultureIgnoreCase))
+            if (string.Equals(zombi.CharacterName, name, StringComparison.CurrentCultureIgnoreCase))
             {
                 return zombi;
             }

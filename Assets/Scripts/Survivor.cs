@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using Script;
+using twitch.game.Iface;
 using UnityEngine;
 
 
-public class Survivor : MonoBehaviour
+public class Survivor : MonoBehaviour, IName
 
 {
     public event Action<BaseBullet> OnEventBullet;
@@ -54,6 +55,8 @@ public class Survivor : MonoBehaviour
 
         SurvivorStates.Enqueue(new IdleCommand());
         WeaponsStates.Enqueue(new IdleCommand());
+
+       
     }
 
     private void Start()
@@ -131,4 +134,7 @@ public class Survivor : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public string CharacterName { get; set; }
+    public GameObject CharacterGameObject { get; set; }
 }

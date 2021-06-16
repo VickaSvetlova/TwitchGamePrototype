@@ -52,7 +52,12 @@ public class GameManager : MonoBehaviour
         zombieController.OnZombieCreated += (zombie) => { uiController.CreateUIName(zombie); };
         zombieController.OnZombieReachedCity += (zombie) => { cityController.CityDamage(zombie); };
         chatController.OnUserAppeared += () => { SetState(GameState.game); };
-        charController.OnUserCreated += (user) => { survivorStatisticController.CreatedUser(user); };
+        charController.OnUserCreated += (user) =>
+        {
+            survivorStatisticController.CreatedUser(user);
+            uiController.CreateUIName(user.Character);
+        };
+        
 
         cityController.OnPopulationChange += (statistic) =>
         {

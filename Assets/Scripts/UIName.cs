@@ -1,12 +1,18 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Text))]
 public class UIName : MonoBehaviour
 {
+    [SerializeField] private Text label;
     private Transform _transform;
+
     private string name;
-    private Text label => GetComponent<Text>();
+
+    private void Start()
+    {
+        label = GetComponent<Text>();
+    }
 
     public string Name
     {
@@ -23,12 +29,18 @@ public class UIName : MonoBehaviour
         get => _transform;
         set => _transform = value;
     }
-    
+
     void Update()
     {
-        if (TransformFolowObject == null) return;
-        Vector3 transformLabel = Camera.main.WorldToScreenPoint(TransformFolowObject.transform.position);
-        transform.position = transformLabel;
+        if (TransformFolowObject != null)
+        {
+            Vector3 transformLabel = Camera.main.WorldToScreenPoint(TransformFolowObject.transform.position);
+            transform.position = transformLabel;
+        }
+        else
+        {
+            DestroyObj();
+        }
     }
 
     public void DestroyObj()

@@ -2718,7 +2718,7 @@ MonoBehaviour:
   StatePpulationEating: {fileID: 213897702}
   sliderEvacuation: {fileID: 1989446964}
   sliderPopulation: {fileID: 2089545980}
-  UINamePrefab: {fileID: 2824236974611551330, guid: 81cffdce258a99d4cb7bc61e48da7c6f, type: 3}
+  UINamePrefab: {fileID: 5138097175516960445, guid: 81cffdce258a99d4cb7bc61e48da7c6f, type: 3}
 --- !u!1 &1417355515
 GameObject:
   m_ObjectHideFlags: 0

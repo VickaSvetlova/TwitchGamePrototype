@@ -46,6 +46,7 @@ namespace Script.controllers
                 statistic.HeadHits += hitInfo.Head ? 1 : 0;
                 statistic.TotalKills += hitInfo.Dead ? 1 : 0;
             };
+            user.Character.OnEventBullet -= ChangeStatistic;
         }
     }
 }

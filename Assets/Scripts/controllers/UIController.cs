@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Script;
+using twitch.game.Iface;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,18 +18,19 @@ public class UIController : MonoBehaviour
     [SerializeField] private Text StatPopulationMax;
     [SerializeField] private Text StatPopulationEvacuation;
     [SerializeField] private Text StatePpulationEating;
-    
+
     [SerializeField] private Slider sliderEvacuation;
     [SerializeField] private Slider sliderPopulation;
     [SerializeField] private GameObject UINamePrefab;
 
     private bool enable;
+
     public void SetStatistic(IStatistic statistic)
     {
         if (statistic.CityIsEmpty())
         {
-            if(enable) return; //костыль 
-            StatisticGameOver(statistic);//всех съели
+            if (enable) return; //костыль 
+            StatisticGameOver(statistic); //всех съели
             enable = true;
         }
         else
@@ -62,16 +64,15 @@ public class UIController : MonoBehaviour
         StatePpulationEating.text = statistic.populationEating.ToString();
     }
 
-    public void CreateUIName(ZombieBase zombieBase)
+    public void CreateUIName(IName name)
     {
         var tempNamePrefab = Instantiate(UINamePrefab);
 
         tempNamePrefab.transform.SetParent(_canvas.transform);
-
         var temp = tempNamePrefab.GetComponent<UIName>();
-        zombieBase.UIName = temp;
-        temp.TransformFolowObject = zombieBase.transform;
-        temp.Name = zombieBase.Name;
+        temp.Name = name.CharacterName;
+        temp.TransformFolowObject = name.CharacterGameObject.transform;
+        temp.Name = name.CharacterName;
     }
 
     public void GameOverWindow(bool state)

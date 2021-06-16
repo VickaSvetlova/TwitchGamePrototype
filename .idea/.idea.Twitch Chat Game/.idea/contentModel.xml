@@ -21,6 +21,7 @@
           <e p="interfaces" t="Include">
             <e p="ICommand.cs" t="Include" />
             <e p="IDestroyer.cs" t="Include" />
+            <e p="IName.cs" t="Include" />
             <e p="IReset.cs" t="Include" />
             <e p="ISurvivorStatistic.cs" t="Include" />
             <e p="ITakeDamage.cs" t="Include" />
