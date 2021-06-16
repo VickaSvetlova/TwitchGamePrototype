@@ -2560,6 +2560,7 @@ MonoBehaviour:
   chatController: {fileID: 1657026536}
   charController: {fileID: 414128177}
   survivorStatisticController: {fileID: 724838992}
+  _survivorStatisticController: {fileID: 724838992}
   coolDawnNextEvacuation: 5
   nextGameTimer: 10
   nextWaveTimer: 5
@@ -2708,6 +2709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvas: {fileID: 1375963847}
+  chat: {fileID: 1417355517}
   screenGameOver: {fileID: 1462100586}
   populationMax: {fileID: 535875772}
   populationEvacuation: {fileID: 2087288586}

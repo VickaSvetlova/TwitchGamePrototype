@@ -1,16 +1,29 @@
 ﻿using System.Collections.Generic;
+using Script;
 using Script.interfaces;
 
-namespace Script
+
+public class SurvivorStatisticGame
+
 {
-    public class SurvivorStatisticGame
+    public List<ISurvivorStatistic> StatisticsGame { get; set; }
 
+    public SurvivorStatisticGame(List<ISurvivorStatistic> statisticsGame)
     {
-        public List<ISurvivorStatistic> StatisticsGame;
+        StatisticsGame = statisticsGame;
+    }
 
-        public SurvivorStatisticGame(List<ISurvivorStatistic> statisticsGame)
+    public ISurvivorStatistic GetSumStatisticGame()
+    {
+        ISurvivorStatistic tempStat = new SurvivorStatisticWave();
+        foreach (var statistic in StatisticsGame)
         {
-            StatisticsGame = statisticsGame;
+            tempStat.AimHits += statistic.AimHits;
+            tempStat.HeadHits += statistic.HeadHits;
+            tempStat.TotalKills += statistic.TotalKills;
+            tempStat.TotalShoot += statistic.TotalShoot;
         }
+
+        return tempStat;
     }
 }

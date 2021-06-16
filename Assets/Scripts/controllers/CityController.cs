@@ -23,10 +23,10 @@ public class CityController : MonoBehaviour
     {
         _gameStatistics.Clear();
         _statisticWave = new WaveStatistic(populationMax, populationMax, _gameStatistics);
-        StartNextWave();
+        NextWave();
     }
 
-    public void StartNextWave()
+    public void NextWave()
     {
         var current = 0;
 

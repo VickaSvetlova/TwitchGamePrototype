@@ -67,9 +67,9 @@ public class ChatController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            PressButton();
+            PressButton("tory_shepard");
         }
 
         if (!ONChatEnable) return;
@@ -151,9 +151,8 @@ public class ChatController : MonoBehaviour
     }
 
     ///test zone
-    public void PressButton()
+    public void PressButton(string chatName)
     {
-        var chatName = "tory_shepard";
         if (!_users.ContainsKey(chatName))
         {
             var user = CharController.CreateCharacter(chatName);

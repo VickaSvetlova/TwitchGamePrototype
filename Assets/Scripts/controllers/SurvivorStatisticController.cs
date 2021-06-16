@@ -18,11 +18,18 @@ namespace Script.controllers
             }
         }
 
+        public void Reset()
+        {
+            _survivorsStatistics.Clear();
+        }
+
         public void CreatedUser(User user)
         {
             if (!_survivorsStatistics.ContainsKey(user))
             {
                 var temp = new SurvivorStatisticGame(new List<ISurvivorStatistic>());
+                temp.StatisticsGame.Add(new SurvivorStatisticWave());
+
                 _survivorsStatistics.Add(user, temp);
                 SubscribeEventBullet(user);
             }
@@ -36,7 +43,7 @@ namespace Script.controllers
         private void ChangeStatistic(BaseBullet bullet)
         {
             var user = bullet.Owner.user;
-            var statistic = _survivorsStatistics[user].StatisticsGame.Last();
+            ISurvivorStatistic statistic = _survivorsStatistics[user].StatisticsGame.Last();
 
             statistic.TotalShoot++;
 
@@ -46,7 +53,11 @@ namespace Script.controllers
                 statistic.HeadHits += hitInfo.Head ? 1 : 0;
                 statistic.TotalKills += hitInfo.Dead ? 1 : 0;
             };
-            user.Character.OnEventBullet -= ChangeStatistic;
+        }
+
+        public Dictionary<User, SurvivorStatisticGame> SendStatisticUI()
+        {
+            return _survivorsStatistics;
         }
     }
 }

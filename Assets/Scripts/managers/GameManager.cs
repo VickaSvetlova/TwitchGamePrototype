@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CharController charController;
     [SerializeField] private SurvivorStatisticController survivorStatisticController;
 
+
     [SerializeField] private float coolDawnNextEvacuation;
 
     private IEnumerator coolDown;
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
             survivorStatisticController.CreatedUser(user);
             uiController.CreateUIName(user.Character);
         };
-        
+
 
         cityController.OnPopulationChange += (statistic) =>
         {
@@ -92,8 +93,8 @@ public class GameManager : MonoBehaviour
                     _previusState = GameState.game;
                     chatController.ONChatEnable = true;
                     zombieController.NextWave();
-                    survivorStatisticController.NextWave();
-                    cityController.StartNextWave();
+
+                    cityController.NextWave();
                     uiController.StatisticsWindow(false);
                 }
 
@@ -105,6 +106,8 @@ public class GameManager : MonoBehaviour
                     _previusState = GameState.statBetwinWave;
                     chatController.ONChatEnable = false;
                     uiController.StatisticsWindow(true);
+                    uiController.SendStatistic(survivorStatisticController.SendStatisticUI(), false);
+                    survivorStatisticController.NextWave();
                     StartCooldown(nextWaveTimer, GameState.game);
                 }
 
@@ -117,6 +120,7 @@ public class GameManager : MonoBehaviour
                     chatController.ONChatEnable = false;
                     uiController.GameOverWindow(true);
                     zombieController.StopGame();
+                    uiController.SendStatistic(survivorStatisticController.SendStatisticUI(), true);
                     StartCooldown(nextGameTimer, GameState.idle);
                 }
 
@@ -142,6 +146,8 @@ public class GameManager : MonoBehaviour
         cityController.Reset();
         chatController.Reset();
         zombieController.Reset();
+        survivorStatisticController.Reset();
+        uiController.Reset();
     }
 
     private void StartCooldown(float time, GameState stateNext)

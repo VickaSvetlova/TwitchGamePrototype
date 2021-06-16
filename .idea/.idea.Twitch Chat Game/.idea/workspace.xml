@@ -29,7 +29,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Script/TwitchChat.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/TestControlCharacter.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/PlayerScore.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/IDestroyer.cs" />
@@ -67,19 +66,20 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/interfaces/ITakeDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BaseBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/interfaces/ICommand.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BaseWeapon.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SurvivorStatisticGame.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/controllers/SurvivorStatisticController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/interfaces/IName.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/controllers/ZombieController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ZombieBase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/controllers/UIController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UIName.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/User.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/managers/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Survivor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/interfaces/ICommand.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/controllers/ChatController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/controllers/ZombieController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/controllers/CharController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/controllers/SurvivorStatisticController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SurvivorStatisticGame.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/controllers/UIController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/managers/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -170,7 +170,7 @@
       <workItem from="1623316209248" duration="6965000" />
       <workItem from="1623328276571" duration="3598000" />
       <workItem from="1623402227003" duration="22177000" />
-      <workItem from="1623834472895" duration="4906000" />
+      <workItem from="1623834472895" duration="20842000" />
     </task>
     <servers />
   </component>
@@ -195,11 +195,11 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="803" height="464" key="DebuggerActiveHint" timestamp="1623838841864">
+    <state width="803" height="464" key="DebuggerActiveHint" timestamp="1623857649933">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
     <state width="803" height="464" key="DebuggerActiveHint/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623427147692" />
-    <state width="803" height="464" key="DebuggerActiveHint/3840.391.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623838841864" />
+    <state width="803" height="464" key="DebuggerActiveHint/3840.391.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623857649933" />
     <state width="1922" height="183" key="GridCell.Tab.0.bottom" timestamp="1623838626438">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
@@ -280,11 +280,11 @@
     </state>
     <state width="1596" height="183" key="GridCell.Tab.3.right/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623427188838" />
     <state width="1922" height="183" key="GridCell.Tab.3.right/3840.391.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623838626047" />
-    <state x="807" y="276" key="RiderGenerateDialog" timestamp="1623838285078">
+    <state x="807" y="276" key="RiderGenerateDialog" timestamp="1623855308352">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
     <state x="807" y="276" key="RiderGenerateDialog/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623421918195" />
-    <state x="807" y="276" key="RiderGenerateDialog/3840.391.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623838285078" />
+    <state x="807" y="276" key="RiderGenerateDialog/3840.391.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623855308352" />
     <state width="752" height="496" key="XDebugger.FullValuePopup" timestamp="1621506978672">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
@@ -303,23 +303,6 @@
     <state x="754" y="279" key="run.anything.popup/3840.0.1920.1010/0.0.2194.1194@0.0.2194.1194" timestamp="1623246710471" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/controllers/UIController.cs</url>
-          <line>73</line>
-          <properties documentPath="E:\git\Enginea\Unity\Twitch Chat Game\Assets\Scripts\controllers\UIController.cs" initialLine="73">
-            <startOffsets>
-              <option value="2393" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2456" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
         <watch expression="TargetAim != null" language="C#" />

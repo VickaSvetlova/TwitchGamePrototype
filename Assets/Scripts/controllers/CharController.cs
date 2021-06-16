@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,10 +15,6 @@ public class CharController : MonoBehaviour
     public void Awake()
     {
         ResetPositionArray();
-    }
-
-    private void Reset()
-    {
     }
 
     public User CreateCharacter(string chatName)

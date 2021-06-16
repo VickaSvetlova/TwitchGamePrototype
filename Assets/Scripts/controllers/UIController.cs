@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Script;
 using twitch.game.Iface;
 using UnityEngine;
@@ -8,6 +10,8 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private Canvas _canvas;
+
+    [SerializeField] private Text chat;
 
     [SerializeField] private GameObject screenGameOver;
     [SerializeField] private Text populationMax;
@@ -57,6 +61,11 @@ public class UIController : MonoBehaviour
         populationEating.text = statistic.populationEating.ToString();
     }
 
+    public void SendChat(string text)
+    {
+        chat.text += text;
+    }
+
     void StatisticBetweenWave(IStatistic statistic)
     {
         StatPopulationMax.text = statistic.populationCurrent.ToString();
@@ -83,5 +92,35 @@ public class UIController : MonoBehaviour
     public void StatisticsWindow(bool state)
     {
         screenStatistics.SetActive(state);
+    }
+
+    public void SendStatistic(Dictionary<User, SurvivorStatisticGame> sendStatisticUI, bool isGameOut)
+    {
+        foreach (var user in sendStatisticUI.Keys)
+        {
+            switch (isGameOut)
+            {
+                case true:
+                    var tempStat = sendStatisticUI[user].GetSumStatisticGame();
+                    SendChat("\n" + string.Format(
+                        "statistic Survivor on Round: {0} TotallShoot: {1} Headshoot: {2} aimShoot: {3} Totall kill {4}",
+                        user.NameUser, tempStat.TotalShoot, tempStat.HeadHits, tempStat.AimHits, tempStat.TotalKills));
+
+                    break;
+                case false:
+                    var statInWave = sendStatisticUI[user]
+                        .StatisticsGame[sendStatisticUI[user].StatisticsGame.Count - 1];
+                    SendChat("\n" + string.Format(
+                        " statistic Survivor on Wave : {0} TotallShoot: {1} Headshoot: {2} aimShoot: {3} Totall kill {4}",
+                        user.NameUser, statInWave.TotalShoot, statInWave.HeadHits, statInWave.AimHits,
+                        statInWave.TotalKills));
+                    break;
+            }
+        }
+    }
+
+    public void Reset()
+    {
+        chat.text = "";
     }
 }
